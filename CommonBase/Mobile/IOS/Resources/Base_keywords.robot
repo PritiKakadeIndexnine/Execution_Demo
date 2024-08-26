@@ -9,7 +9,7 @@ Library    ../../../../CommonBase/Utilities/user_keywords.py
 ${deviceName}    devicename
 ${platformVersion}    platformversion
 ${app}    app
-
+${host_url}    host_url
 
 *** Keywords ***
 Open Application On Real Device
@@ -23,7 +23,7 @@ Open New Application On Real Device
 Open Application On Lamda Test
     [Arguments]    ${env_data}
     open application
-        ...    ${env_data.host_url}
+        ...    ${host_url}
         ...    deviceName=${deviceName}
         ...    platformVersion=${platformVersion}
         ...    platformName=${env_data.platformName}
