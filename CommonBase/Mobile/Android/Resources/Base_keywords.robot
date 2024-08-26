@@ -28,17 +28,17 @@ Open New Application On Real Device
     [Arguments]    ${env_data}
     open application      ${env_data.host}    platformName=${env_data.platformName}   deviceName=${env_data.deviceName}   app=${env_data.application_sdk}    autoGrantPermissions=true    automationName=${env_data.automationName}    noReset=false        platformVersion=${env_data.platformVersion}
 
-Open Application On Lamda Test
-    open application
-        ...    ${LT_REMOTE_URL}
-        ...    deviceName=${deviceName}
-        ...    platformVersion=${platformVersion}
-        ...    platformName=${PLATFORM_NAME}
-        ...    isRealMobile=true
-        ...    app=${app}
-        ...    build=Android_Build_1
-        ...    name=LT_Demo
-        ...    automationName=UiAutomator2
+#Open Application On Lamda Test
+#    open application
+#        ...    ${LT_REMOTE_URL}
+#        ...    deviceName=${deviceName}
+#        ...    platformVersion=${platformVersion}
+#        ...    platformName=${PLATFORM_NAME}
+#        ...    isRealMobile=true
+#        ...    app=${app}
+#        ...    build=Android_Build_1
+#        ...    name=LT_Demo
+#        ...    automationName=UiAutomator2
 
 
 Open Application On Browserstack
