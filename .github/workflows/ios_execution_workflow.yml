@@ -25,10 +25,8 @@ jobs:
     - name: Install Robot Framework and Dependencies
       run: |
         pip install -r requirements.txt
-        pip install appium-python-client==2.0.0
         pip install robotframework-seleniumlibrary
         pip install robotframework-appiumlibrary
-        pip install PyPDF2
         sudo apt-get install jq
 
     - name: Run Tests on All Devices from JSON
@@ -41,7 +39,7 @@ jobs:
           
             # Construct and run the Robot Framework command
             echo "Running tests on $DEVICE_NAME with IOS $PLATFORM_VERSION and App URL $APP_URL $LAMBDATEST_USERNAME $LAMBDATEST_ACCESS_KEY"
-            robot --variable username:"$LAMBDATEST_USERNAME" --variable accesskey:"$LAMBDATEST_ACCESS_KEY" --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_URL" Mobile/IOS/KC/TestCases/HallOfFans/hall_of_fans_test.robot
+            pabot --testlevelsplit --variable username:"$LAMBDATEST_USERNAME" --variable accesskey:"$LAMBDATEST_ACCESS_KEY" --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_URL" Mobile/IOS/KC/TestCases/HallOfFans/hall_of_fans_test.robot
             echo "end"
           done
 
