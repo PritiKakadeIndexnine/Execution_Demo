@@ -22,8 +22,8 @@ jobs:
     - name: Install Robot Framework and Dependencies
       run: |
         pip install -r requirements.txt
-        pip install robotframework-selenium library
-        pip install robotframework-appium library
+        pip install robotframework-seleniumlibrary
+        pip install robotframework-appiumlibrary
         sudo apt-get install jq
 
     - name: Run Tests on All Devices from JSON
