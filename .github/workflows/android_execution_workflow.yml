@@ -9,6 +9,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    env:
+      LAMBDATEST_USERNAME: ${{ secrets.LAMBDATEST_USERNAME }}
+      LAMBDATEST_ACCESS_KEY: ${{ secrets.LAMBDATEST_ACCESSKEY }}
+      APPIUM_SERVER_URL: https://suraj.warade:c5gyNDEr11w2acPLuruyQ9Su3DUz5yYeqvWs6Pq8qAK6EaZtMF@mobile-hub.lambdatest.com/wd/hub
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -34,15 +39,7 @@ jobs:
           
             # Construct and run the Robot Framework command
             echo "Running tests on $DEVICE_NAME with Android $PLATFORM_VERSION and App URL $APP_URL"
-            robot --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_URL"  Mobile/Android/KC/TestCases/Login/already_registered_user_test.robot
+            pabot --variable username:"suraj.warade" --variable accesskey:"c5gyNDEr11w2acPLuruyQ9Su3DUz5yYeqvWs6Pq8qAK6EaZtMF" --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_URL"  Mobile/Android/KC/TestCases/Login/already_registered_user_test.robot
           done
-      env:
-          LAMBDATEST_USERNAME: ${{ secrets.LAMBDATEST_USERNAME }}
-          LAMBDATEST_ACCESS_KEY: ${{ secrets.LAMBDATEST_ACCESSKEY }}
+      
 
-
-    - name: Upload test results
-      uses: actions/upload-artifact@v2
-      with:
-        name: test-results
-        path: Mobile/Android/KC/TestCases/Login/log.html
