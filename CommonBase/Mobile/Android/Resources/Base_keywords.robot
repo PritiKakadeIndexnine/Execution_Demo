@@ -5,6 +5,20 @@ Library    Collections
 Library    String
 Library    ../../../../CommonBase/Utilities/user_keywords.py
 
+
+*** Variables ***
+${LAMBDATEST_USERNAME}      suraj.warade
+${LAMBDATEST_ACCESSKEY}     c5gyNDEr11w2acPLuruyQ9Su3DUz5yYeqvWs6Pq8qAK6EaZtMF
+${LT_REMOTE_URL}            https://${LAMBDATEST_USERNAME}:${LAMBDATEST_ACCESSKEY}@mobile-hub.lambdatest.com/wd/hub
+${PLATFORM_NAME}            android
+${APP_PACKAGE}              android-lambdatest
+${APP_ACTIVITY}             your.app.activity
+${deviceName}               Galaxy S22 5G
+${platformVersion}          14.0
+${app}                      lt://APP1016061291724326875162787
+
+
+
 *** Keywords ***
 Open Application On Real Device
     [Arguments]    ${env_data}
@@ -15,16 +29,17 @@ Open New Application On Real Device
     open application      ${env_data.host}    platformName=${env_data.platformName}   deviceName=${env_data.deviceName}   app=${env_data.application_sdk}    autoGrantPermissions=true    automationName=${env_data.automationName}    noReset=false        platformVersion=${env_data.platformVersion}
 
 Open Application On Lamda Test
-    [Arguments]    ${env_data}
     open application
-        ...    ${env_data.lt_host}
-        ...    deviceName=${env_data.deviceName}
-        ...    platformVersion=${env_data.platformVersion}
-        ...    platformName=${env_data.platformName}
+        ...    ${LT_REMOTE_URL}
+        ...    deviceName=${deviceName}
+        ...    platformVersion=${platformVersion}
+        ...    platformName=${PLATFORM_NAME}
         ...    isRealMobile=true
-        ...    app=${env_data.lt_app_url}
-        ...    name=Android
-        ...    automationName=${env_data.automationName}
+        ...    app=${app}
+        ...    build=Android_Build_1
+        ...    name=LT_Demo
+        ...    automationName=UiAutomator2
+
 
 Open Application On Browserstack
     [Arguments]    ${env_data}
