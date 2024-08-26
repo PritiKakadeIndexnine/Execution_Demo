@@ -12,8 +12,7 @@ jobs:
     env:
           LAMBDATEST_USERNAME: ${{ secrets.LAMBDATEST_USERNAME }}
           LAMBDATEST_ACCESS_KEY: ${{ secrets.LAMBDATEST_ACCESSKEY }}
-          HOST_URL: https://${{ secrets.LAMBDATEST_USERNAME }}:${{ secrets.LAMBDATEST_ACCESSKEY }}@mobile-hub.lambdatest.com/wd/hub
-          
+
 
     steps:
     - name: Checkout code
