@@ -23,7 +23,7 @@ Open New Application On Real Device
 
 Open Application On Lamda Test
     open application
-        ...    https://${username}:${accesskey}@mobile-hub.lambdatest.com/wd/hub
+        ...    https://suraj.warade:c5gyNDEr11w2acPLuruyQ9Su3DUz5yYeqvWs6Pq8qAK6EaZtMF@mobile-hub.lambdatest.com/wd/hub
         ...    deviceName=${deviceName}
         ...    platformVersion=${platformVersion}
         ...    platformName= iOS
