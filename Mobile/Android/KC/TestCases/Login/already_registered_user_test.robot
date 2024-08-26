@@ -13,6 +13,7 @@ Test Setup          Open Application On Lamda Test
 Test Teardown       Close Application
 
 
+
 *** Variables ***
 ${screenshot_actual_dir}            ${CURDIR}${/}..${/}..${/}..${/}..${/}..${/}Runners/Reports/Screenshots/actual_screenshots
 ${already_registered_user_td}       ${CURDIR}${/}..${/}..${/}TestData${/}already_registered_user_data.xlsx
