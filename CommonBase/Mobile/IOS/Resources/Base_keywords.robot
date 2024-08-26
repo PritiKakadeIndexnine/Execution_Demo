@@ -5,6 +5,13 @@ Library    Collections
 Library    String
 Library    ../../../../CommonBase/Utilities/user_keywords.py
 
+*** Variables ***
+${deviceName}    devicename
+${platformVersion}    platformversion
+${app}    app
+${username}    username
+${accesskey}    accesskey
+
 *** Keywords ***
 Open Application On Real Device
     [Arguments]    ${env_data}
@@ -15,8 +22,11 @@ Open New Application On Real Device
     open application      ${env_data.host}    platformName=${env_data.platformName}   deviceName=${env_data.deviceName}   app=${env_data.ipa_file}    autoGrantPermissions=true    automationName=${env_data.automationName}    noReset=false     udid=${env_data.udid}    platformVersion=${env_data.platformVersion}    autoAcceptAlerts=true
 
 Open Application On Lamda Test
-    [Arguments]    ${env_data}
     open application
+        ...    https://suraj.warade:c5gyNDEr11w2acPLuruyQ9Su3DUz5yYeqvWs6Pq8qAK6EaZtMF@mobile-hub.lambdatest.com/wd/hub
+        ...    deviceName=${deviceName}
+        ...    platformVersion=${platformVersion}
+        ...    platformName= iOS
         ...    ${env_data.lt_host}
         ...    deviceName=${env_data.deviceName}
         ...    platformVersion=${env_data.platformVersion}
@@ -24,7 +34,7 @@ Open Application On Lamda Test
         ...    isRealMobile=true
         ...    app=${env_data.lt_app_url}
         ...    name=IOS
-        ...    automationName=${env_data.automationName}
+        ...    automationName= XCUITest
         ...    appProfiling=true
         ...    network=true
 
