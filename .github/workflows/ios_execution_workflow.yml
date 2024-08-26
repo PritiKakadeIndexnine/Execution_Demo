@@ -13,7 +13,6 @@ jobs:
           LAMBDATEST_USERNAME: ${{ secrets.LAMBDATEST_USERNAME }}
           LAMBDATEST_ACCESS_KEY: ${{ secrets.LAMBDATEST_ACCESSKEY }}
 
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -42,7 +41,7 @@ jobs:
             echo "Running tests on $DEVICE_NAME with IOS $PLATFORM_VERSION and App URL $APP_URL"
             echo $HOST_URL
             pabot --testlevelsplit --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_URL"  Mobile/IOS/KC/TestCases/HallOfFans/hall_of_fans_test.robot
-          done
+
       
     
 
