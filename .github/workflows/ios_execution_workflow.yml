@@ -3,7 +3,7 @@ name: Run IOS Tests on LambdaTest
 on: 
   push:
     branches:
-      - ios-execution
+      - IOS-execution
 
 jobs:
   test:
