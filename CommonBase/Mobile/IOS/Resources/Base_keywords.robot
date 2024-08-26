@@ -22,7 +22,6 @@ Open New Application On Real Device
     open application      ${env_data.host}    platformName=${env_data.platformName}   deviceName=${env_data.deviceName}   app=${env_data.ipa_file}    autoGrantPermissions=true    automationName=${env_data.automationName}    noReset=false     udid=${env_data.udid}    platformVersion=${env_data.platformVersion}    autoAcceptAlerts=true
 
 Open Application On Lamda Test
-    [Arguments]
     open application
         ...    https://${username}:${accesskey}@mobile-hub.lambdatest.com/wd/hub
         ...    deviceName=${deviceName}
