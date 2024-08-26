@@ -25,9 +25,10 @@ jobs:
     - name: Install Robot Framework and Dependencies
       run: |
         pip install -r requirements.txt
-        pip install appium-python-client
+        pip install appium-python-client==2.0.0
         pip install robotframework-seleniumlibrary
         pip install robotframework-appiumlibrary
+        pip install PyPDF2
         sudo apt-get install jq
 
     - name: Run Tests on All Devices from JSON
