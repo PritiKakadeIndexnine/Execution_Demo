@@ -23,6 +23,7 @@ jobs:
         pip install -r requirements.txt
         pip install robotframework-seleniumlibrary
         pip install robotframework-appiumlibrary
+        pip install Appium-Python-Client==2.10.0
         sudo apt-get install jq
 
     - name: Run Tests on All Devices from JSON
