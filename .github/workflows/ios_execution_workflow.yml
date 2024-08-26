@@ -25,6 +25,7 @@ jobs:
     - name: Install Robot Framework and Dependencies
       run: |
         pip install -r requirements.txt
+        pip install appium-python-client
         pip install robotframework-seleniumlibrary
         pip install robotframework-appiumlibrary
         sudo apt-get install jq
