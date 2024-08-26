@@ -24,7 +24,7 @@ ${LT_REMOTE_URL}            https://${LAMBDATEST_USERNAME}:${LAMBDATEST_ACCESSKE
 ${PLATFORM_NAME}            android
 ${APP_PACKAGE}              android-lambdatest
 ${APP_ACTIVITY}             your.app.activity
-${deviceName}               Galaxy S22 5G
+${deviceName}               Galaxy S24+
 ${platformVersion}          14.0
 ${app}                      lt://APP1016061291724326875162787
 
