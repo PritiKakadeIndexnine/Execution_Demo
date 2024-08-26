@@ -2,13 +2,17 @@ name: Run IOS Tests on LambdaTest
 
 on: 
   push:
-    branches: 
+    branches:
       - IOS-execution
 
 jobs:
   test:
     runs-on: ubuntu-latest
-
+    
+    env:
+          LAMBDATEST_USERNAME: ${{ secrets.LAMBDATEST_USERNAME }}
+          LAMBDATEST_ACCESS_KEY: ${{ secrets.LAMBDATEST_ACCESSKEY }}
+          
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -35,15 +39,13 @@ jobs:
           
             # Construct and run the Robot Framework command
             echo "Running tests on $DEVICE_NAME with IOS $PLATFORM_VERSION and App URL $APP_URL"
-            pabot --testlevelsplit --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_URL" Mobile/IOS/KC/TestCases/HallOfFans/hall_of_fans_test.robot
+            pabot --testlevelsplit -i demo --variable lamdatest_username:LAMBDATEST_USERNAME --variables lamdatest_accesskey:LAMBDATEST_ACCESS_KEY --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_URL"  Mobile/IOS/KC/TestCases/HallOfFans/hall_of_fans_test.robot
           done
-      env:
-          LAMBDATEST_USERNAME: ${{ secrets.LAMBDATEST_USERNAME }}
-          LAMBDATEST_ACCESS_KEY: ${{ secrets.LAMBDATEST_ACCESSKEY }}
+      
     
 
     - name: Upload test results
       uses: actions/upload-artifact@v2
       with:
         name: test-results
-        path: Mobile/Android/KC/TestCases/Login/log.html
+        path: Output

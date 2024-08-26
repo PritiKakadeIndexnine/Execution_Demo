@@ -5,11 +5,6 @@ Library    Collections
 Library    String
 Library    ../../../../CommonBase/Utilities/user_keywords.py
 
-*** Variables ***
-${deviceName}    devicename
-${platformVersion}    platformversion
-${app}    app
-
 *** Keywords ***
 Open Application On Real Device
     [Arguments]    ${env_data}
@@ -22,12 +17,12 @@ Open New Application On Real Device
 Open Application On Lamda Test
     [Arguments]    ${env_data}
     open application
-        ...    ${env_data.host_url}
-        ...    deviceName=${deviceName}
-        ...    platformVersion=${platformVersion}
+        ...    ${env_data.lt_host}
+        ...    deviceName=${env_data.deviceName}
+        ...    platformVersion=${env_data.platformVersion}
         ...    platformName=${env_data.platformName}
         ...    isRealMobile=true
-        ...    app=${app}
+        ...    app=${env_data.lt_app_url}
         ...    name=IOS
         ...    automationName=${env_data.automationName}
         ...    appProfiling=true
