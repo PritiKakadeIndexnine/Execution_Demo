@@ -24,6 +24,7 @@ jobs:
         pip install robotframework-seleniumlibrary
         pip install robotframework-appiumlibrary
         pip install Appium-Python-Client==2.10.0
+        pip install PyPDF2
         sudo apt-get install jq
 
     - name: Run Tests on All Devices from JSON
