@@ -1,6 +1,6 @@
-name: Run IOS Tests on LambdaTest
+name: Run Appium Tests
 
-on: 
+on:
   push:
     branches:
       - IOS-execution
@@ -10,9 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-          LAMBDATEST_USERNAME: ${{ secrets.LAMBDATEST_USERNAME }}
-          LAMBDATEST_ACCESS_KEY: ${{ secrets.LAMBDATEST_ACCESSKEY }}
-          
+      LAMBDATEST_USERNAME: ${{ secrets.LAMBDATEST_USERNAME }}
+      LAMBDATEST_ACCESS_KEY: ${{ secrets.LAMBDATEST_ACCESSKEY }}
+      APPIUM_SERVER_URL: https://suraj.warade:c5gyNDEr11w2acPLuruyQ9Su3DUz5yYeqvWs6Pq8qAK6EaZtMF@mobile-hub.lambdatest.com/wd/hub
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -22,27 +23,15 @@ jobs:
       with:
         python-version: '3.12'
 
-    - name: Install Robot Framework and Dependencies
+    - name: Install dependencies
       run: |
         pip install -r requirements.txt
-        pip install robotframework-seleniumlibrary
+        pip install appium-python-client
         pip install robotframework-appiumlibrary
+        pip install PyPDF2
         sudo apt-get install jq
 
-    - name: Run Tests on All Devices from JSON
+    - name: Run Appium tests
       run: |
-          # Read the JSON file and generate commands
-          jq -c '.[]' ios_combinations.json | while IFS= read -r device; do
-            DEVICE_NAME=$(echo "$device" | jq -r '.device')
-            PLATFORM_VERSION=$(echo "$device" | jq -r '.version')
-            APP_URL=$(echo "$device" | jq -r '.env')
-          
-            # Construct and run the Robot Framework command
-            echo "Running tests on $DEVICE_NAME with IOS $PLATFORM_VERSION and App URL $APP_URL $LAMBDATEST_USERNAME $LAMBDATEST_ACCESS_KEY"
-            robot -i demo --variable username:"$LAMBDATEST_USERNAME" --variable accesskey:"$LAMBDATEST_ACCESS_KEY" --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_URL" Mobile/IOS/KC/TestCases/HallOfFans/hall_of_fans_test.robot
-            echo "end"
-          done
-
-      
-    
-
+        # Run your Appium tests
+        robot -i demo --variable appium_server:"$APPIUM_SERVER_URL" --variable deviceName:"iPhone 14 Pro" --variable platformVersion:"16.0" --variable app:lt:"//APP1016061291724664628238139" Mobile/IOS/KC/TestCases

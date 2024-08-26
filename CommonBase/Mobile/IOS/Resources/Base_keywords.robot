@@ -11,6 +11,7 @@ ${platformVersion}    platformversion
 ${app}    app
 ${username}    username
 ${accesskey}    accesskey
+${appium_server}    ${EMPTY}
 
 *** Keywords ***
 Open Application On Real Device
@@ -23,16 +24,12 @@ Open New Application On Real Device
 
 Open Application On Lamda Test
     open application
-        ...    https://suraj.warade:c5gyNDEr11w2acPLuruyQ9Su3DUz5yYeqvWs6Pq8qAK6EaZtMF@mobile-hub.lambdatest.com/wd/hub
+        ...    ${appium_server}
         ...    deviceName=${deviceName}
         ...    platformVersion=${platformVersion}
         ...    platformName= iOS
-        ...    ${env_data.lt_host}
-        ...    deviceName=${env_data.deviceName}
-        ...    platformVersion=${env_data.platformVersion}
-        ...    platformName=${env_data.platformName}
         ...    isRealMobile=true
-        ...    app=${env_data.lt_app_url}
+        ...    app=${app}
         ...    name=IOS
         ...    automationName= XCUITest
         ...    appProfiling=true
