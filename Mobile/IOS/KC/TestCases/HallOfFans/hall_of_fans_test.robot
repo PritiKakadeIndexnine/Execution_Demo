@@ -10,7 +10,6 @@ ${testdatasheet}    ${CURDIR}${/}..${/}..${/}TestData${/}hall_of_fans_testdata.x
 
 *** Test Cases ***
 95 Verify if Terms and Conditions checkbox is uncheck
-    [Tags]    demo
     Click And Verify Skip Login Button
     Click On Skip Instructions Button If Visible
     Wait And Click On Element    xpath=${menu_button}

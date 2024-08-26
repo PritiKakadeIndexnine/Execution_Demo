@@ -11,6 +11,6 @@
   "ipa_file": "/Users/vijay/Downloads/KKR.ipa",
   "autoGrantPermissions": "true",
   "lt_app_url": "lt://APP10160522261722255378244608",
-  "lt_host": "https://suraj.warade:c5gyNDEr11w2acPLuruyQ9Su3DUz5yYeqvWs6Pq8qAK6EaZtMF@mobile-hub.lambdatest.com/wd/hub"
+  "host_url": "https://suraj.warade:c5gyNDEr11w2acPLuruyQ9Su3DUz5yYeqvWs6Pq8qAK6EaZtMF@mobile-hub.lambdatest.com/wd/hub"
 }
 
