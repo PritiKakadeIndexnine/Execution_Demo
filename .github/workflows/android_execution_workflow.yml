@@ -35,7 +35,7 @@ jobs:
           
             # Construct and run the Robot Framework command
             echo "Running tests on $DEVICE_NAME with Android $PLATFORM_VERSION and App URL $APP_URL"
-            pabot --testlevelsplit -i demo --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_URL"  Mobile/Android/KC/TestCases/Login/already_registered_user_test.robot
+            robot -i demo --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_URL"  Mobile/Android/KC/TestCases/Login/already_registered_user_test.robot
           done
       env:
           LAMBDATEST_USERNAME: ${{ secrets.LAMBDATEST_USERNAME }}
