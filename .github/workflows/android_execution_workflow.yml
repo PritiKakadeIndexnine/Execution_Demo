@@ -1,4 +1,4 @@
-name: Run Android Tests on BrowserStack
+name: Run Android Tests on LambdaTest
 
 on:
    push:
@@ -28,17 +28,18 @@ jobs:
     - name: Run Tests on All Devices from JSON
       run: |
         # Read the JSON file and generate commands
-        jq -c '.devices[]' android_environment.json | while IFS= read -r device; do
-          DEVICE_NAME=$(echo "$device" | jq -r '.deviceName')
-          PLATFORM_VERSION=$(echo "$device" | jq -r '.platformVersion')
+        jq -c '.[]' android_combinations.json | while IFS= read -r device; do
+            DEVICE_NAME=$(echo "$device" | jq -r '.device')
+            PLATFORM_VERSION=$(echo "$device" | jq -r '.version')
+            APP_URL=$(echo "$device" | jq -r '.env')
           
           # Construct and run the Robot Framework command
           echo "Running tests on $DEVICE_NAME with Android $PLATFORM_VERSION"
-          robot --variable deviceName:"$DEVICE_NAME" --variable platformVersion:$PLATFORM_VERSION  Mobile/Android/KC/TestCases/Login/already_registered_user_test.robot
+          robot -i demo --variable deviceName:"$DEVICE_NAME" --variable platformVersion:$PLATFORM_VERSION  Mobile/Android/KC/TestCases/Login/already_registered_user_test.robot
         done
       env:
-        BROWSERSTACK_USERNAME: ${{ secrets.LAMBDATEST_USERNAME }}
-        BROWSERSTACK_ACCESS_KEY: ${{ secrets.LAMBDATEST_ACCESSKEY }}
+        LAMBDATEST_USERNAME: ${{ secrets.LAMBDATEST_USERNAME }}
+        LAMBDATEST_ACCESS_KEY: ${{ secrets.LAMBDATEST_ACCESSKEY }}
 
     - name: Upload test results
       uses: actions/upload-artifact@v2

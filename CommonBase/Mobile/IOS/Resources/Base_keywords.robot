@@ -27,8 +27,12 @@ Open Application On Lamda Test
         ...    deviceName=${deviceName}
         ...    platformVersion=${platformVersion}
         ...    platformName= iOS
+        ...    ${env_data.lt_host}
+        ...    deviceName=${env_data.deviceName}
+        ...    platformVersion=${env_data.platformVersion}
+        ...    platformName=${env_data.platformName}
         ...    isRealMobile=true
-        ...    app=${app}
+        ...    app=${env_data.lt_app_url}
         ...    name=IOS
         ...    automationName= XCUITest
         ...    appProfiling=true
