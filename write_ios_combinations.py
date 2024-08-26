@@ -18,6 +18,6 @@ if __name__ == "__main__":
 
         remote_url = "https://github.com/PritiKakadeIndexnine/Execution_Demo.git"
 
-        orthagonal_operations.commit_and_push_changes("ios-execution", remote_url)
+        orthagonal_operations.commit_and_push_changes("IOS-execution", remote_url)
 
 
