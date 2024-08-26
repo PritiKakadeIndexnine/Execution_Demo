@@ -28,9 +28,10 @@ jobs:
     - name: Run Tests on All Devices from JSON
       run: |
         # Read the JSON file and generate commands
-        jq -c '.devices[]' android_combinations.json | while IFS= read -r device; do
-          DEVICE_NAME=$(echo "$device" | jq -r '.deviceName')
-          PLATFORM_VERSION=$(echo "$device" | jq -r '.platformVersion')
+        jq -c '.[]' android_combinations.json | while IFS= read -r device; do
+            DEVICE_NAME=$(echo "$device" | jq -r '.device')
+            PLATFORM_VERSION=$(echo "$device" | jq -r '.version')
+            APP_URL=$(echo "$device" | jq -r '.env')
           
           # Construct and run the Robot Framework command
           echo "Running tests on $DEVICE_NAME with Android $PLATFORM_VERSION"
