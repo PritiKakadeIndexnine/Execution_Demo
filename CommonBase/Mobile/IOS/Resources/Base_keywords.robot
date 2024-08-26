@@ -10,6 +10,7 @@ ${deviceName}    devicename
 ${platformVersion}    platformversion
 ${app}    app
 
+
 *** Keywords ***
 Open Application On Real Device
     [Arguments]    ${env_data}
