@@ -15,8 +15,8 @@ ${iOS_environment}   ${CURDIR}${/}..${/}..${/}..${/}..${/}..${/}Runners${/}Envir
 Open KC Application
     &{env_data}  Get Environment Data    ${iOS_environment}
 #    Open Application On Real Device     ${env_data}
-    Open New Application On Real Device     ${env_data}
-#    Open Application On Lamda Test      ${env_data}
+#    Open New Application On Real Device     ${env_data}
+    Open Application On Lamda Test      ${env_data}
 #    Accept All App Permissions
 
 Verify Login Screen
