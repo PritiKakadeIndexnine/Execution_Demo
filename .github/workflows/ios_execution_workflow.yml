@@ -1,6 +1,9 @@
 name: Run IOS Tests on LambdaTest
 
-on: [push, pull_request]
+on: 
+  push:
+    branches:
+      - ios_execution
 
 jobs:
   test:
