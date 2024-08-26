@@ -5,6 +5,13 @@ Library    Collections
 Library    String
 Library    ../../../../CommonBase/Utilities/user_keywords.py
 
+*** Variables ***
+${deviceName}    devicename
+${platformVersion}    platformversion
+${app}    app
+${lamdatest_username}
+${lamdatest_accesskey}
+
 *** Keywords ***
 Open Application On Real Device
     [Arguments]    ${env_data}
@@ -17,12 +24,12 @@ Open New Application On Real Device
 Open Application On Lamda Test
     [Arguments]    ${env_data}
     open application
-        ...    ${env_data.lt_host}
-        ...    deviceName=${env_data.deviceName}
-        ...    platformVersion=${env_data.platformVersion}
+        ...    https://${lamdatest_username}:${lamdatest_accesskey}@mobile-hub.lambdatest.com/wd/hub
+        ...    deviceName=${deviceName}
+        ...    platformVersion=${platformVersion}
         ...    platformName=${env_data.platformName}
         ...    isRealMobile=true
-        ...    app=${env_data.lt_app_url}
+        ...    app=${app}
         ...    name=IOS
         ...    automationName=${env_data.automationName}
         ...    appProfiling=true
