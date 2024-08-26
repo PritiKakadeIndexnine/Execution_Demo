@@ -1,6 +1,9 @@
 name: Run Android Tests on BrowserStack
 
-on: [push, pull_request]
+on:
+   push:
+     branches:
+       - Android
 
 jobs:
   test:
