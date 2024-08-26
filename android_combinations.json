@@ -1,0 +1,17 @@
+[
+    {
+        "env": "lt://APP1016061291724326875162787",
+        "device": "Galaxy S23+",
+        "version": "12.0"
+    },
+    {
+        "env": "lt://APP1016061291724326875162787",
+        "device": "Galaxy S22 5G",
+        "version": "13.0"
+    },
+    {
+        "env": "lt://APP1016061291724326875162787",
+        "device": "Galaxy S24+",
+        "version": "14.0"
+    }
+]

@@ -9,7 +9,7 @@ Resource            ../../Resources/Notification/notification_keywords.robot
 Library             ../../../../../CommonBase/Utilities/user_keywords.py
 Variables           ../../PageObjects/Login/login_locators.py
 
-Test Setup          Open Kc App
+Test Setup          Open Application On Lamda Test
 Test Teardown       Close Application
 
 
@@ -20,6 +20,7 @@ ${already_registered_user_td}       ${CURDIR}${/}..${/}..${/}TestData${/}already
 
 *** Test Cases ***
 TC-01 Verify valid indian mobile number
+    [Tags]  demo
     &{login_data}    Fetch Data By Id    ${already_registered_user_td}    1
     Verify Login Screen
     Enter Mobile Number    ${login_data}
