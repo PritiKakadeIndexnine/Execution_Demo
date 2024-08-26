@@ -39,7 +39,7 @@ jobs:
           
             # Construct and run the Robot Framework command
             echo "Running tests on $DEVICE_NAME with IOS $PLATFORM_VERSION and App URL $APP_URL"
-            pabot --testlevelsplit -i demo --variable lamdatest_username:LAMBDATEST_USERNAME --variables lamdatest_accesskey:LAMBDATEST_ACCESS_KEY --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_URL"  Mobile/IOS/KC/TestCases/HallOfFans/hall_of_fans_test.robot
+            pabot --testlevelsplit -i demo --variable lamdatest_username:LAMBDATEST_USERNAME --variable lamdatest_accesskey:LAMBDATEST_ACCESS_KEY --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_URL"  Mobile/IOS/KC/TestCases/HallOfFans/hall_of_fans_test.robot
           done
       
     
