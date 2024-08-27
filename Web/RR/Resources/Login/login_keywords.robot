@@ -26,7 +26,7 @@ Open Application And Launch The URL
     Maximize Browser Window
 
 Launch Application
-    Open Browser    ${env}    browserName=${browser}   browserVersion=${version}    remote_url=${appium_server}    platformName=${platform}    screenResolution=${RESOLUTION}    name=${NAME}
+    Open Browser    ${env}    browserName=${browser}   browserVersion=${version}    remote_url=${appium_server}
     Maximize Browser Window
 
 #    ${env_data}  Get Environment Data    ${web_environment}
