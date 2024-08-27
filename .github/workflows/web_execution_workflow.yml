@@ -26,7 +26,6 @@ jobs:
       run: |
         pip install -r requirements.txt
         pip install robotframework-seleniumlibrary
-        pip install robotframework-appiumlibrary
         sudo apt-get install jq
 
     - name: Run Tests on All Devices from JSON
@@ -38,7 +37,7 @@ jobs:
           
             # Construct and run the Robot Framework command
             echo "Running tests on $DEVICE_NAME with IOS $PLATFORM_VERSION and App URL $APP_URL"
-            pabot --testlevelsplit --variable browser:"$BROWSER" --env:"$ENV" --variable appium_server:"$APPIUM_SERVER_URL" Web/RR/TestCases/Players/Players_test.robot
+            pabot --testlevelsplit --variable browser:"$BROWSER" --variable env:"$ENV" --variable appium_server:"$APPIUM_SERVER_URL" Web/RR/TestCases/Players/Players_test.robot
           done
 
       
