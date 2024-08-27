@@ -1,14 +1,14 @@
 [
   {
     "env": "https://stg-rr.sportz.io/",
-    "browser": "chrome",
+    "browser": "Chrome",
     "windows_height": 1920,
     "window_width": 1080,
     "receiver_email": "bhakti.kolapkar@indexnine.com"
   },
   {
     "env": "https://stg-rr.sportz.io/",
-    "browser": "edge",
+    "browser": "Edge",
     "windows_height": 1920,
     "window_width": 1080,
     "receiver_email": "bhakti.kolapkar@indexnine.com"

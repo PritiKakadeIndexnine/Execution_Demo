@@ -5,8 +5,8 @@
       "prod": "https://stg-rr.sportz.io/"
   },
   "browser": {
-      "chrome": "chrome",
-      "edge": "edge"
+      "chrome": "Chrome",
+      "edge": "Edge"
   },
   "platform": {
       "Windows 10": "Windows 10"
