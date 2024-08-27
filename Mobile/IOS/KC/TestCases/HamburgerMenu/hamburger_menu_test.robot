@@ -13,6 +13,7 @@ ${testdatasheet}    ${CURDIR}${/}..${/}..${/}TestData${/}hamburger_menu_testdata
 
 *** Test Cases ***
 89 Verify the redirection of Fan Loyalty Program menu if user is not logged in
+    [Tags]    demo
     Click And Verify Skip Login Button
     Click On Skip Instructions Button If Visible
     Wait And Click On Element    xpath=${menu_button}
@@ -31,9 +32,10 @@ ${testdatasheet}    ${CURDIR}${/}..${/}..${/}TestData${/}hamburger_menu_testdata
     ${image_path}=    Set Variable    ${screenshot_actual_dir}/faq_page_screenshot.png
     Wait for 5 seconds
     ${cropped_image}=    user_keywords.crop image header footer    ${image_path}    ${image_path}    80      30
-    Compare Images     ./Mobile/IOS/KC/TestData/reference_screenshots/FAQ_screen.png    ${cropped_image}    resize_candidate=true
+    Compare Images      ${cropped_image}    ./Mobile/IOS/KC/TestData/reference_screenshots/FAQ_screen.png    resize_candidate=true
 
 91 Verify the redirection of FAQs Button
+    [Tags]    demo
     Click And Verify Skip Login Button
     Click On Skip Instructions Button If Visible
     Wait And Click On Element    xpath=${menu_button}
@@ -57,6 +59,7 @@ ${testdatasheet}    ${CURDIR}${/}..${/}..${/}TestData${/}hamburger_menu_testdata
 
 
 93 Verify the redirection of Hall of fans menu if user is not logged in
+    [Tags]    demo
     Click And Verify Skip Login Button
     Click On Skip Instructions Button If Visible
     Wait And Click On Element    xpath=${menu_button}
