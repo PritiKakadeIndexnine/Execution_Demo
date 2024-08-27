@@ -28,7 +28,6 @@ ${testdatasheet}    ${CURDIR}${/}..${/}..${/}TestData${/}hall_of_fans_testdata.x
     Verify Button Is Enabled     xpath=${check_your_rankings_button}
 
 97 Verify if non-logged-in user check Terms &Conditions checkbox and click on below button
-    [Tags]    demo
     &{data}    fetch data by id    ${testdatasheet}    97
     Click And Verify Skip Login Button
     Click On Skip Instructions Button If Visible
