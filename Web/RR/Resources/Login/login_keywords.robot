@@ -18,7 +18,7 @@ ${platform}        Windows 10
 ${version}      127
 ${RESOLUTION}     1920x1080
 ${NAME}           LambdaTest Automation
-&{lt_options}       browserName=${browser}      platform_name=Windows 10      name=RobotFramework Lambda Test    buildName=Robot Build
+&{lt_options}       browserName=${browser}      platform=Windows 10      name=RobotFramework Lambda Test    buildName=Robot Build
 
 *** Keywords ***
 Open Application And Launch The URL
