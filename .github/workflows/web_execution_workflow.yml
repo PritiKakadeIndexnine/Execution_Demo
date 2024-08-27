@@ -1,9 +1,9 @@
-name: Run IOS Tests on LambdaTest
+name: Run WEB Tests on LambdaTest
 
 on: 
   push:
     branches:
-      - Web-execution
+      - web-execution
 
 jobs:
   test:
