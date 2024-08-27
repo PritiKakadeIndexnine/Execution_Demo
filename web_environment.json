@@ -3,13 +3,15 @@
       "staging": "https://stg-rr.sportz.io/",
       "qa": "https://stg-rr.sportz.io/",
       "prod": "https://stg-rr.sportz.io/"
-    },
-    "browser": {
+  },
+  "browser": {
       "chrome": "chrome",
-      "firefox": "firefox",
       "edge": "edge"
-    },
-    "window_height": 1920,
-    "window_width": 1080,
-    "receiver_email": "bhakti.kolapkar@indexnine.com"
+  },
+  "platform": {
+      "Windows 10": "Windows 10"
+  },
+  "window_height": 1920,
+  "window_width": 1080,
+  "receiver_email": "bhakti.kolapkar@indexnine.com"
 }

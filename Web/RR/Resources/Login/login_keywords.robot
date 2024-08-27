@@ -11,11 +11,10 @@ Resource    ../../../../CommonBase/Web/Resources/Web_Common_Keywords.robot
 *** Variables ***
 ${web_environment}  ${CURDIR}${/}..${/}..${/}..${/}..${/}Runners${/}Environment${/}web_environment.json
 ${VALID_EMAIL_REGEX}    ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
-${env}   https://stg-rr.sportz.io/
-${browser}   Chrome
+${env}   ${EMPTY}
+${browser}   ${EMPTY}
 ${appium_server}     ${EMPTY}
-${BROWSER}        chrome
-${PLATFORM}       Windows 10
+${platform}        Windows 10
 ${RESOLUTION}     1920x1080
 ${NAME}           LambdaTest Automation
 
@@ -26,7 +25,7 @@ Open Application And Launch The URL
     Maximize Browser Window
 
 Launch Application
-    ${capabilities}=    Create Dictionary    browserName=${BROWSER}    platform=${PLATFORM}    screenResolution=${RESOLUTION}    name=${NAME}
+    ${capabilities}=    Create Dictionary    browserName=${BROWSER}    platformName=${PLATFORM}    screenResolution=${RESOLUTION}    name=${NAME}
     Open Browser    ${env}    ${browser}    remote_url=${appium_server}    desired_capabilities=${capabilities}
     Maximize Browser Window
 
