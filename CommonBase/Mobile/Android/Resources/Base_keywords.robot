@@ -36,7 +36,7 @@ Open Application On Lamda Test
         ...    platformName=${PLATFORM_NAME}
         ...    isRealMobile=true
         ...    app=${app}
-        ...    build=Android_Build_1
+        ...    build=Android_Build_new
         ...    name=LT_Demo
         ...    automationName=UiAutomator2
 
