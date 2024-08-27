@@ -18,6 +18,7 @@ ${platform}        Windows 10
 ${version}      127
 ${RESOLUTION}     1920x1080
 ${NAME}           LambdaTest Automation
+&{lt_options}       browserName=${browser}      name=RobotFramework Lambda Test    buildName=Robot Build
 
 *** Keywords ***
 Open Application And Launch The URL
@@ -26,8 +27,12 @@ Open Application And Launch The URL
     Maximize Browser Window
 
 Launch Application
-    Open Browser    ${env}    browserName=${browser}   browserVersion=${version}    remote_url=${appium_server}
-    Maximize Browser Window
+   ${options}=    Evaluate    sys.modules['selenium.webdriver'].${BROWSER}Options()    sys, selenium.webdriver
+    Call Method    ${options}    set_capability    LT:Options    ${lt_options}
+    Open Browser    ${env}
+    ...    browser=${browser}
+    ...    remote_url=${appium_server}
+    ...    options=${options}
 
 #    ${env_data}  Get Environment Data    ${web_environment}
 #    ${env_data}  Create Dictionary  &{env_data}
