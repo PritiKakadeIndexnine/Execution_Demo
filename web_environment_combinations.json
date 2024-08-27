@@ -1,14 +1,29 @@
 [
-  {
-    "env": "QA",
-    "browser": "chrome"
-  },
-  {
-    "env": "Staging",
-    "browser": "firefox"
-  },
-  {
-    "env": "Prod",
-    "browser": "edge"
-  }
+    {
+        "env": "QA",
+        "env_url": "https://stg-rr.sportz.io/",
+        "browser": "Chrome",
+        "platform": "Windows 10",
+        "window_height": 1920,
+        "window_width": 1080,
+        "receiver_email": "bhakti.kolapkar@indexnine.com"
+    },
+    {
+        "env": "Staging",
+        "env_url": "https://stg-rr.sportz.io/",
+        "browser": "",
+        "platform": "Windows 10",
+        "window_height": 1920,
+        "window_width": 1080,
+        "receiver_email": "bhakti.kolapkar@indexnine.com"
+    },
+    {
+        "env": "Prod",
+        "env_url": "https://stg-rr.sportz.io/",
+        "browser": "Edge",
+        "platform": "Windows 10",
+        "window_height": 1920,
+        "window_width": 1080,
+        "receiver_email": "bhakti.kolapkar@indexnine.com"
+    }
 ]

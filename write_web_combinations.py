@@ -9,27 +9,41 @@ import orthagonal_operations
 
 def update_environment_combinations(combinations, env_config_file="web_environment.json", output_file="web_environment_combinations.json"):
     # Load the existing configuration
-    with open('web_environment.json', 'r') as file:
+    with open(env_config_file, 'r') as file:
         config = json.load(file)
 
-    # Extracting relevant configurations
-    env_urls = config['env']
-    browsers = config['browser']
-    window_height = config['window_height']
-    window_width = config['window_width']
-    receiver_email = config['receiver_email']
+    # Prepare the results container
+    results = []
 
     # Iterate over each combination
-    for combination in test_combinations:
+    for combination in combinations:
         # Extract factors and their values
-        env = combination.get('env')
-        browser = combination.get('browser')
+        env_key = combination.get('env')
+        browser_key = combination.get('browser')
 
         # Map factors to their corresponding values
-        env_url = env_urls.get(env.lower(), '')
-        browser_name = browsers.get(browser.capitalize(), '')
+        env_url = config['env'].get(env_key.lower(), '')
+        browser_name = config['browser'].get(browser_key.capitalize(), '')
 
+        # Create a new dictionary with updated values
+        updated_combination = {
+            'env': env_key,
+            'env_url': env_url,
+            'browser': browser_name,
+            'platform': config['platform']['Windows 10'],
+            'window_height': config['window_height'],
+            'window_width': config['window_width'],
+            'receiver_email': config['receiver_email']
+        }
 
+        # Append to the results list
+        results.append(updated_combination)
+
+    # Write the results to a new JSON file
+    with open(output_file, 'w') as file:
+        json.dump(results, file, indent=4)
+
+    print("Updated environment combinations have been written to 'updated_environment_combinations.json'.")
 
 
 if __name__ == "__main__":
