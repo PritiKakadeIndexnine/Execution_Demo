@@ -36,8 +36,8 @@ jobs:
             ENV=$(echo "$device" | jq -r '.env')
           
             # Construct and run the Robot Framework command
-            echo "Running tests on $DEVICE_NAME with IOS $PLATFORM_VERSION and App URL $APP_URL"
-            pabot --testlevelsplit --variable browser:"$BROWSER" --variable env:"$ENV" --variable appium_server:"$APPIUM_SERVER_URL" Web/RR/TestCases/Players/Players_test.robot
+            echo "Running tests on "$BROWSER" with env $"ENV""
+            robot --variable browser:"$BROWSER" --variable env:"$ENV" --variable appium_server:"$APPIUM_SERVER_URL" Web/RR/TestCases/Players/Players_test.robot
           done
 
       
