@@ -22,22 +22,22 @@ def update_environment_combinations(combinations, env_config_file="web_environme
     # Iterate over each combination
     for combination in combinations:
         # Extract factors and their values
-        env_key = combination.get('env')
-        browser_key = combination.get('browser')
+        env_key = combination.get('env', '').lower()
+        browser_key = combination.get('browser', '').capitalize()
 
         # Debug: Print current combination being processed
         print(f"Processing combination: env={env_key}, browser={browser_key}")
 
         # Map factors to their corresponding values
-        env_url = config['env'].get(env_key.lower(), '')
-        browser_name = config['browser'].get(browser_key.capitalize(), '')
+        env_url = config['env'].get(env_key, '')
+        browser_name = config['browser'].get(browser_key, '')
 
         # Debug: Print extracted values
         print(f"Extracted values: env_url={env_url}, browser_name={browser_name}")
 
         # Create a new dictionary with updated values
         updated_combination = {
-            'env': env_key,
+            'env': combination.get('env', ''),
             'env_url': env_url,
             'browser': browser_name,
             'platform': config['platform']['Windows 10'],
