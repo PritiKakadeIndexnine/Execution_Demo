@@ -26,17 +26,21 @@ Open Application And Launch The URL
     Maximize Browser Window
 
 Launch Application
-    ${env_data}  Get Environment Data    ${web_environment}
-    ${env_data}  Create Dictionary  &{env_data}
-#    ${options} =  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
-#    ${options} =  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
-#    ${prefs}  Create Dictionary  download.default_directory=${default_download_path}
-#    Call Method  ${options}  add_experimental_option  prefs  ${prefs}
-#    Call Method  ${options}  add_argument  headless
-    Open Browser     ${RR_application_url}   browser=${Browser}
-    Set Window Size    ${env_data.window_height}    ${env_data.window_width}
-#    Open Browser  ${env_data.RR_application_url}  ${env_data.browser}
+    ${capabilities}=    Create Dictionary    browserName=${BROWSER}    platform=${PLATFORM}    screenResolution=${RESOLUTION}    name=${NAME}
+    Open Browser    ${env}    ${browser}    remote_url=${appium_server}    desired_capabilities=${capabilities}
     Maximize Browser Window
+
+#    ${env_data}  Get Environment Data    ${web_environment}
+#    ${env_data}  Create Dictionary  &{env_data}
+##    ${options} =  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
+##    ${options} =  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
+##    ${prefs}  Create Dictionary  download.default_directory=${default_download_path}
+##    Call Method  ${options}  add_experimental_option  prefs  ${prefs}
+##    Call Method  ${options}  add_argument  headless
+#    Open Browser     ${RR_application_url}   browser=${Browser}
+#    Set Window Size    ${env_data.window_height}    ${env_data.window_width}
+##    Open Browser  ${env_data.RR_application_url}  ${env_data.browser}
+#    Maximize Browser Window
 
 
 #Launch Application New
