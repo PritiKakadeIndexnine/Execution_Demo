@@ -13,17 +13,16 @@ ${web_environment}  ${CURDIR}${/}..${/}..${/}..${/}..${/}Runners${/}Environment$
 ${VALID_EMAIL_REGEX}    ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
 ${RR_application_url}   https://stg-rr.sportz.io/
 ${Browser}   Chrome
-${REMOTE_URL}     https://suraj.warade:c5gyNDEr11w2acPLuruyQ9Su3DUz5yYeqvWs6Pq8qAK6EaZtMF@mobile-hub.lambdatest.com/wd/hub
+${appium_server}     ${EMPTY}
 ${BROWSER}        chrome
 ${PLATFORM}       Windows 10
 ${RESOLUTION}     1920x1080
 ${NAME}           LambdaTest Automation
-${url}             https://stg-rr.sportz.io/
 
 *** Keywords ***
 Open Application And Launch The URL
     ${capabilities}=    Create Dictionary    browserName=${BROWSER}    platform=${PLATFORM}    screenResolution=${RESOLUTION}    name=${NAME}
-    Open Browser    ${url}    ${BROWSER}    remote_url=${REMOTE_URL}    desired_capabilities=${capabilities}
+    Open Browser    ${RR_application_url}    ${BROWSER}    remote_url=${appium_server}    desired_capabilities=${capabilities}
     Maximize Browser Window
 
 Launch Application
