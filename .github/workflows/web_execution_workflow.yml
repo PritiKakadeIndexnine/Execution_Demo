@@ -31,7 +31,7 @@ jobs:
 
     - name: Run Tests on All Devices from JSON
       run: |
-            pabot --testlevelsplit --variable host_url:"$LT_APPIUM_SERVER" Web/RR/TestCases/Players/Players_test.robot
+            pabot --testlevelsplit Web/RR/TestCases/Players/Players_test.robot
 
 
           
