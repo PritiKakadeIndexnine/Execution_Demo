@@ -13,17 +13,8 @@ def update_environment_combinations(combinations, env_config_file="web_environme
 
     updated_env = []
 
-    for combination in combinations:
-        env_key = combination['env'].lower()
-        browser_key = combination['browser'].lower()
-        if env_key in env_config['env'] and browser_key in env_config['browser']:
-            updated_env.append({
-                "env": env_config['env'][env_key],
-                "browser": env_config['browser'][browser_key],
-                "windows_height": env_config['window_height'],
-                "window_width": env_config['window_width'],
-                "receiver_email": env_config['receiver_email']
-            })
+    with open(output_file, 'w') as json_file:
+        json.dump(combinations, json_file, indent=4)
 
     with open(output_file, 'w') as f:
         json.dump(updated_env, f, indent=2)
