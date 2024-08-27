@@ -8,10 +8,27 @@ import orthagonal_operations
 
 
 def update_environment_combinations(combinations, env_config_file="web_environment.json", output_file="web_environment_combinations.json"):
-    with open(output_file, 'w') as f:
-        json.dump(combinations, f, indent=2)
+    # Load the existing configuration
+    with open('web_environment.json', 'r') as file:
+        config = json.load(file)
 
-    print(f"Updated environment combinations written to '{output_file}'")
+    # Extracting relevant configurations
+    env_urls = config['env']
+    browsers = config['browser']
+    window_height = config['window_height']
+    window_width = config['window_width']
+    receiver_email = config['receiver_email']
+
+    # Iterate over each combination
+    for combination in test_combinations:
+        # Extract factors and their values
+        env = combination.get('env')
+        browser = combination.get('browser')
+
+        # Map factors to their corresponding values
+        env_url = env_urls.get(env.lower(), '')
+        browser_name = browsers.get(browser.capitalize(), '')
+
 
 
 
