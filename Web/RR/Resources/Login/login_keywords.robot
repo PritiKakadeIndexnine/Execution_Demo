@@ -3,7 +3,7 @@ Library    SeleniumLibrary
 Library    Collections
 Library    String
 Library    BuiltIn
-Variables  ../../../../Downloads/Downloads.py
+Variables    ../../../../Downloads/Downloads.py
 Variables  ../../PageObjects/Login/login_page_locators.py
 Resource    ../Fixtures and Results/fixturesresults_keywords.robot
 Resource    ../../../../CommonBase/Web/Resources/Web_Common_Keywords.robot
@@ -11,8 +11,8 @@ Resource    ../../../../CommonBase/Web/Resources/Web_Common_Keywords.robot
 *** Variables ***
 ${web_environment}  ${CURDIR}${/}..${/}..${/}..${/}..${/}Runners${/}Environment${/}web_environment.json
 ${VALID_EMAIL_REGEX}    ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
-${RR_application_url}   https://stg-rr.sportz.io/
-${Browser}   Chrome
+${env}   https://stg-rr.sportz.io/
+${browser}   Chrome
 ${appium_server}     ${EMPTY}
 ${BROWSER}        chrome
 ${PLATFORM}       Windows 10
@@ -22,7 +22,7 @@ ${NAME}           LambdaTest Automation
 *** Keywords ***
 Open Application And Launch The URL
     ${capabilities}=    Create Dictionary    browserName=${BROWSER}    platform=${PLATFORM}    screenResolution=${RESOLUTION}    name=${NAME}
-    Open Browser    ${RR_application_url}    ${BROWSER}    remote_url=${appium_server}    desired_capabilities=${capabilities}
+    Open Browser    ${env}    ${browser}    remote_url=${appium_server}    desired_capabilities=${capabilities}
     Maximize Browser Window
 
 Launch Application
