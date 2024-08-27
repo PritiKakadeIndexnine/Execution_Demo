@@ -10,7 +10,6 @@ ${testdatasheet}    ${CURDIR}${/}..${/}..${/}TestData${/}hall_of_fans_testdata.x
 
 *** Test Cases ***
 95 Verify if Terms and Conditions checkbox is uncheck
-    [Tags]    demo
     Click And Verify Skip Login Button
     Click On Skip Instructions Button If Visible
     Wait And Click On Element    xpath=${menu_button}
@@ -20,6 +19,7 @@ ${testdatasheet}    ${CURDIR}${/}..${/}..${/}TestData${/}hall_of_fans_testdata.x
     Verify Button Is Disabled    xpath=${check_your_rankings_button}
 
 96 Verify if user check Terms and Conditions checkbox
+    [Tags]    demo
     Click And Verify Skip Login Button
     Click On Skip Instructions Button If Visible
     Wait And Click On Element    xpath=${menu_button}
@@ -28,6 +28,7 @@ ${testdatasheet}    ${CURDIR}${/}..${/}..${/}TestData${/}hall_of_fans_testdata.x
     Verify Button Is Enabled     xpath=${check_your_rankings_button}
 
 97 Verify if non-logged-in user check Terms &Conditions checkbox and click on below button
+    [Tags]    demo
     &{data}    fetch data by id    ${testdatasheet}    97
     Click And Verify Skip Login Button
     Click On Skip Instructions Button If Visible
