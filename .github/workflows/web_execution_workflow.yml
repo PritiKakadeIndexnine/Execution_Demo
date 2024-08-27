@@ -1,0 +1,39 @@
+name: Run IOS Tests on LambdaTest
+
+on: 
+  push:
+    branches:
+      - Web-execution
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    env:
+          LAMBDATEST_USERNAME: ${{ secrets.LAMBDATEST_USERNAME }}
+          LAMBDATEST_ACCESS_KEY: ${{ secrets.LAMBDATEST_ACCESSKEY }}
+          
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Install Robot Framework and Dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install robotframework-seleniumlibrary
+        pip install robotframework-appiumlibrary
+        sudo apt-get install jq
+
+    - name: Run Tests on All Devices from JSON
+      run: |
+            pabot --testlevelsplit -i demo --variable host_url:"$LT_APPIUM_SERVER" Web/RR/TestCases
+
+          
+
+      
+    
