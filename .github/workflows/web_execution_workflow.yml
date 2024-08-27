@@ -34,6 +34,12 @@ jobs:
           # Extract variables from the JSON object
           BROWSER=$(echo "$device" | jq -r '.browser')
           ENV=$(echo "$device" | jq -r '.env_url')
+          
+          # Debug information (optional)
+          echo "Device JSON: $device"
+          echo "Browser: $BROWSER"
+          echo "Environment URL: $ENV"
+          
           # Construct and run the Robot Framework command
           echo "Running tests on '$BROWSER' with environment '$ENV'"
           pabot --testlevelsplit --variable browser:"$BROWSER" --variable env:"$ENV" --variable appium_server:"$SERVER_URL" Web/RR/TestCases/Players/Players_test.robot
