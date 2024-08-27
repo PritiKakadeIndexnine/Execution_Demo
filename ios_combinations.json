@@ -1,17 +1,17 @@
 [
     {
         "env": "lt://APP1016061291724664628238139",
+        "device": "iPhone 11",
+        "version": "15.0"
+    },
+    {
+        "env": "lt://APP1016061291724664628238139",
+        "device": "iPhone 12",
+        "version": "15.0"
+    },
+    {
+        "env": "lt://APP1016061291724664628238139",
         "device": "iPhone 13",
-        "version": "16.0"
-    },
-    {
-        "env": "lt://APP1016061291724664628238139",
-        "device": "iPhone 14",
-        "version": "17.0"
-    },
-    {
-        "env": "lt://APP1016061291724664628238139",
-        "device": "iPhone 15",
-        "version": "16.0"
+        "version": "15.0"
     }
 ]
