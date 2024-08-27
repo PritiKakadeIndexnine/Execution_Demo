@@ -6,12 +6,12 @@
     },
     {
         "env": "lt://APP1016061291724664628238139",
-        "device": "iPhone 14 Pro",
+        "device": "iPhone 14",
         "version": "17.0"
     },
     {
         "env": "lt://APP1016061291724664628238139",
-        "device": "iPhone 15 Pro Max",
+        "device": "iPhone 15",
         "version": "16.0"
     }
 ]
