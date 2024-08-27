@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "env": "QA",
+    "browser": "chrome"
+  },
+  {
+    "env": "Staging",
+    "browser": "firefox"
+  },
+  {
+    "env": "Prod",
+    "browser": "edge"
+  }
+]

@@ -8,16 +8,8 @@ import orthagonal_operations
 
 
 def update_environment_combinations(combinations, env_config_file="web_environment.json", output_file="web_environment_combinations.json"):
-    with open(env_config_file, 'r') as f:
-        env_config = json.load(f)
-
-    updated_env = []
-
-    with open(output_file, 'w') as json_file:
-        json.dump(combinations, json_file, indent=4)
-
     with open(output_file, 'w') as f:
-        json.dump(updated_env, f, indent=2)
+        json.dump(combinations, f, indent=2)
 
     print(f"Updated environment combinations written to '{output_file}'")
 
