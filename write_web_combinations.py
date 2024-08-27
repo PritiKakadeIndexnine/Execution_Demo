@@ -15,15 +15,25 @@ def update_environment_combinations(combinations, env_config_file="web_environme
     # Prepare the results container
     results = []
 
+    # Debug: Print loaded config
+    print("Loaded configuration:")
+    print(json.dumps(config, indent=4))
+
     # Iterate over each combination
     for combination in combinations:
         # Extract factors and their values
         env_key = combination.get('env')
         browser_key = combination.get('browser')
 
+        # Debug: Print current combination being processed
+        print(f"Processing combination: env={env_key}, browser={browser_key}")
+
         # Map factors to their corresponding values
         env_url = config['env'].get(env_key.lower(), '')
         browser_name = config['browser'].get(browser_key.capitalize(), '')
+
+        # Debug: Print extracted values
+        print(f"Extracted values: env_url={env_url}, browser_name={browser_name}")
 
         # Create a new dictionary with updated values
         updated_combination = {
@@ -43,7 +53,7 @@ def update_environment_combinations(combinations, env_config_file="web_environme
     with open(output_file, 'w') as file:
         json.dump(results, file, indent=4)
 
-    print("Updated environment combinations have been written to 'updated_environment_combinations.json'.")
+    print(f"Updated environment combinations have been written to '{output_file}'.")
 
 
 if __name__ == "__main__":
