@@ -20,7 +20,7 @@ ${actual_resend_otp_limit_count}        0
 
 ${LAMBDATEST_USERNAME}      suraj.warade
 ${LAMBDATEST_ACCESSKEY}     c5gyNDEr11w2acPLuruyQ9Su3DUz5yYeqvWs6Pq8qAK6EaZtMF
-${host_url}            https://${LAMBDATEST_USERNAME}:${LAMBDATEST_ACCESSKEY}@mobile-hub.lambdatest.com/wd/hub
+${host_url}                 https://${LAMBDATEST_USERNAME}:${LAMBDATEST_ACCESSKEY}@mobile-hub.lambdatest.com/wd/hub
 ${PLATFORM_NAME}            android
 ${APP_PACKAGE}              android-lambdatest
 ${APP_ACTIVITY}             your.app.activity
