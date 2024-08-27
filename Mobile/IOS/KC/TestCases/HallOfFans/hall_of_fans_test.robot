@@ -19,7 +19,6 @@ ${testdatasheet}    ${CURDIR}${/}..${/}..${/}TestData${/}hall_of_fans_testdata.x
     Verify Button Is Disabled    xpath=${check_your_rankings_button}
 
 96 Verify if user check Terms and Conditions checkbox
-    [Tags]    demo
     Click And Verify Skip Login Button
     Click On Skip Instructions Button If Visible
     Wait And Click On Element    xpath=${menu_button}

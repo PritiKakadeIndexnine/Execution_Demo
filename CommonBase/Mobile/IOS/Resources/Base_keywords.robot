@@ -34,6 +34,7 @@ Open Application On Lamda Test
         ...    automationName= XCUITest
         ...    appProfiling=true
         ...    network=true
+        ...    build=IOS_KC_APPLICATION
 
 Accept All App Permissions
     FOR    ${i}    IN RANGE    1    5
