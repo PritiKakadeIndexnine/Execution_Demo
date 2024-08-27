@@ -252,6 +252,9 @@ def crop_image(image_path1, output_path1, target_width, target_height):
 #     return output_path
 #
 
+def replace_am_pm(datetime_str):
+    return datetime_str.replace('AM', 'am').replace('PM', 'pm')
+
 
 
 

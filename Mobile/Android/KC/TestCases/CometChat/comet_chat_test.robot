@@ -4,7 +4,7 @@ Resource            ../../Resources/Login/login_keywords.robot
 Resource            ../../Resources/CometChat/comet_chat_keywords.robot
 Variables           ../../PageObjects/Login/login_locators.py
 
-Test Setup          Open Kc App
+Test Setup          Open Application On Lamda Test
 Test Teardown       Close Application
 
 
@@ -17,6 +17,7 @@ ${group_count}      3
 
 *** Test Cases ***
 TC-58 Verify registered user can join N number of clubs in the given club list
+    [Tags]    cometchat
     set library search order    AppiumLibrary    SeleniumLibrary
     &{data}    fetch data by id    ${registered_user_data}    1
     Verify Login Screen

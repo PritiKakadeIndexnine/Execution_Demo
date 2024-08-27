@@ -39,7 +39,7 @@ jobs:
           
             # Construct and run the Robot Framework command
             echo "Running tests on $DEVICE_NAME with Android $PLATFORM_VERSION and App URL $APP_URL"
-            pabot --variable username:"suraj.warade" --variable accesskey:"c5gyNDEr11w2acPLuruyQ9Su3DUz5yYeqvWs6Pq8qAK6EaZtMF" --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_URL"  Mobile/Android/KC/TestCases/Login/already_registered_user_test.robot
+            robot -i cometchat --variable host_url:$APPIUM_SERVER_URL --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_URL"  Mobile/Android/KC/TestCases/CometChat/comet_chat_test.robot
           done
       
 
