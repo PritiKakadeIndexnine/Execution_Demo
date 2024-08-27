@@ -15,6 +15,7 @@ ${env}   ${EMPTY}
 ${browser}   ${EMPTY}
 ${appium_server}     ${EMPTY}
 ${platform}        Windows 10
+${version}      127
 ${RESOLUTION}     1920x1080
 ${NAME}           LambdaTest Automation
 
@@ -25,8 +26,7 @@ Open Application And Launch The URL
     Maximize Browser Window
 
 Launch Application
-    ${capabilities}=    Create Dictionary    browserName=${BROWSER}    platformName=${PLATFORM}    screenResolution=${RESOLUTION}    name=${NAME}
-    Open Browser    ${env}    ${browser}    remote_url=${appium_server}    desired_capabilities=${capabilities}
+    Open Browser    ${env}    browserName=${browser}   browserVersion=${version}    remote_url=${appium_server}    platformName=${platform}    screenResolution=${RESOLUTION}    name=${NAME}
     Maximize Browser Window
 
 #    ${env_data}  Get Environment Data    ${web_environment}
