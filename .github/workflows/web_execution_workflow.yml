@@ -34,10 +34,9 @@ jobs:
           jq -c '.[]' web_environment_combinations.json | while IFS= read -r device; do
             BROWSER=$(echo "$device" | jq -r '.browser')
             ENV=$(echo "$device" | jq -r '.env')
-            PLATFORM=$(echo "platform" | jq -r '.platform')
             # Construct and run the Robot Framework command
             echo "Running tests on "$BROWSER" with env $"ENV""
-            robot --variable browser:"$BROWSER" --variable platform:"$PLATFORM" --variable env:"$ENV" --variable appium_server:"$APPIUM_SERVER_URL" Web/RR/TestCases/Players/Players_test.robot
+            robot --variable browser:"$BROWSER" --variable env:"$ENV" --variable appium_server:"$APPIUM_SERVER_URL" Web/RR/TestCases/Players/Players_test.robot
           done
 
       
