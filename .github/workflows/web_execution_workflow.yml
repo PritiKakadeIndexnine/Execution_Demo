@@ -12,7 +12,7 @@ jobs:
     env:
           LAMBDATEST_USERNAME: ${{ secrets.LAMBDATEST_USERNAME }}
           LAMBDATEST_ACCESS_KEY: ${{ secrets.LAMBDATEST_ACCESSKEY }}
-          APPIUM_SERVER_URL: ${{ secrets.LT_APPIUM_SERVER }}
+          SERVER_URL: https://suraj.warade:c5gyNDEr11w2acPLuruyQ9Su3DUz5yYeqvWs6Pq8qAK6EaZtMF@hub.lambdatest.com/wd/hub
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -36,5 +36,5 @@ jobs:
             ENV=$(echo "$env" | jq -r '.env')
             # Construct and run the Robot Framework command
             echo "Running tests on "$BROWSER" with env "$ENV""
-            robot --variable browser:"$BROWSER" --variable env:"$ENV" --variable appium_server:"$APPIUM_SERVER_URL" Web/RR/TestCases/Players/Players_test.robot
+            robot --variable browser:"$BROWSER" --variable env:"$ENV" --variable appium_server:"$SERVER_URL" Web/RR/TestCases/Players/Players_test.robot
           done
