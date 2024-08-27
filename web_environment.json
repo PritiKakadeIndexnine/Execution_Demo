@@ -6,8 +6,7 @@
   },
   "browser": {
       "Chrome": "Chrome",
-      "Edge": "Edge",
-      "firefox": "firefox"
+      "Edge": "Edge"
   },
   "platform": {
       "Windows 10": "Windows 10"

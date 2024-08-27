@@ -60,7 +60,7 @@ if __name__ == "__main__":
     factors = ["env", "browser"]
     levels = {
         "env": ["QA", "Staging", "Prod"],
-        "browser": ["chrome", "firefox", "edge"]
+        "browser": ["chrome", "edge"]
     }
 
     test_combinations = orthagonal_operations.generate_testing_combinations(factors, levels)
@@ -70,20 +70,3 @@ if __name__ == "__main__":
     remote_url = "https://github.com/PritiKakadeIndexnine/Execution_Demo.git"
 
     orthagonal_operations.commit_and_push_changes("web-execution", remote_url)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -11,7 +11,7 @@
     {
         "env": "Staging",
         "env_url": "https://stg-rr.sportz.io/",
-        "browser": "",
+        "browser": "Edge",
         "platform": "Windows 10",
         "window_height": 1920,
         "window_width": 1080,
@@ -20,7 +20,7 @@
     {
         "env": "Prod",
         "env_url": "https://stg-rr.sportz.io/",
-        "browser": "Edge",
+        "browser": "Chrome",
         "platform": "Windows 10",
         "window_height": 1920,
         "window_width": 1080,
