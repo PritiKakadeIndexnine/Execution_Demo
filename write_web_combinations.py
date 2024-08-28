@@ -104,7 +104,7 @@ if __name__ == "__main__":
         factors = ["env", "browser"]
         levels = {
             "env": ["QA", "Staging", "Prod"],
-            "browser": ["chrome", "edge"]
+            "browser": ["chrome", "edge", "firefox"]
         }
 
         test_combinations = orthagonal_operations.generate_testing_combinations(factors, levels)
