@@ -1,9 +1,9 @@
 {
   "web": {
     "env": {
-      "RR_application_url": "https://stg-rr.sportz.io/",
-      "RR_application_url": "https://stg-rr.sportz.io/",
-      "RR_application_url": "https://stg-rr.sportz.io/"
+      "staging": "https://stg-rr.sportz.io/",
+      "qa": "https://stg-rr.sportz.io/",
+      "prod": "https://stg-rr.sportz.io/"
     },
     "browser": {
       "chrome": "chrome",
