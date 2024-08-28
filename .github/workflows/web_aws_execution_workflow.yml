@@ -3,7 +3,7 @@
  on:
    push:
      branches:
-       - web_aws_execution_workflow
+       - web_Aws_Execution
 
 
    workflow_dispatch:
