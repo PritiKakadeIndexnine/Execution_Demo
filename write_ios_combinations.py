@@ -13,7 +13,7 @@ if __name__ == "__main__":
             "version": list(combined_env['ios']['version'].values())
         }
 
-        combinations = orthagonal_operations.generate_testing_combinations(factors, levels)
+        combinations = orthagonal_operations.generate_testing_combinations(factors, levels, runs=2)
         orthagonal_operations.update_combinations(combinations)
 
         remote_url = "https://github.com/PritiKakadeIndexnine/Execution_Demo.git"
