@@ -9,10 +9,7 @@ from openpyxl import load_workbook
 global workbook
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import pytesseract
-from PIL import Image
-from PyPDF2 import PdfReader
-from robot.api.deco import keyword
+
 
 def fetch_user_details_by_number(file_path, target_id):
     global workbook
@@ -203,12 +200,16 @@ def get_all_links(url):
         driver.quit()
         return hrefs
 
-def resize_image1(image_path, width, height, output_path):
 
-    image = Image.open(image_path)
-    resized_image = image.resize((int(width), int(height)))
-    resized_image.save(output_path)
-    return output_path
+
+
+# def resize_image1(image_path, width, height, output_path):
+#
+#     image = Image.open(image_path)
+#     resized_image = image.resize((int(width), int(height)))
+#     resized_image.save(output_path)
+#     return output_path
+
 
 def crop_image(image_path1, output_path1, target_width, target_height):
 
@@ -231,120 +232,30 @@ def crop_image(image_path1, output_path1, target_width, target_height):
     return output_path1
 
 
-def crop_image_header_footer(image_path, output_path, header_height, footer_height):
-    # Open the image file
-    with Image.open(image_path) as img:
-        width, height = img.size
-        header_height = int(header_height)
-        footer_height = int(footer_height)
-        # Define the crop box (left, upper, right, lower)
-        # Assuming header and footer heights are known
-        crop_box = (0, header_height, width, height - footer_height)
-
-        # Crop the image
-        cropped_img = img.crop(crop_box)
-
-        # Save the cropped image
-        cropped_img.save(output_path)
-    return output_path
-
-
-
-def crop_image1(image_path, output_path, target_width, target_height, top_crop=50, bottom_crop=50):
-    target_width = int(target_width)
-    target_height = int(target_height)
-
-    with Image.open(image_path) as img:
-        width, height = img.size
-
-        # Calculate the cropping coordinates
-        left = int((width - target_width) / 2)
-        top = top_crop
-        right = int((width + target_width) / 2)
-        bottom = bottom_crop
-
-        # Perform the crop operation
-        cropped_img = img.crop((left, top, right, bottom))
-        cropped_img.save(output_path)
-
-    return output_path
-@keyword
-def extract_response_values(response, key):
-    values = []
-    def extract(obj, key):
-        try:
-            if isinstance(obj, dict):
-                for k, v in obj.items():
-                    if k == key:
-                        values.append(v)
-                    elif isinstance(v, (dict, list)):
-                        extract(v, key)
-            elif isinstance(obj, list):
-                for item in obj:
-                    extract(item, key)
-        except Exception as e:
-            print(f"An error occurred: {e}")
-    try:
-        extract(response, key)
-    except Exception as e:
-        print(f"An error occurred while processing the response: {e}")
-    return values
+# def crop_image1(image_path, output_path, target_width, target_height, top_crop=50):
+#     target_width = int(target_width)
+#     target_height = int(target_height)
+#
+#     with Image.open(image_path) as img:
+#         width, height = img.size
+#
+#         # Calculate the cropping coordinates
+#         left = int((width - target_width) / 2)
+#         top = top_crop
+#         right = int((width + target_width) / 2)
+#         bottom = int(height - (height - target_height - top_crop))
+#
+#         # Perform the crop operation
+#         cropped_img = img.crop((left, top, right, bottom))
+#         cropped_img.save(output_path)
+#
+#     return output_path
+#
 
 def replace_am_pm(datetime_str):
     return datetime_str.replace('AM', 'am').replace('PM', 'pm')
 
 
-def replace_am_pm(datetime_str):
-    return datetime_str.replace('AM', 'am').replace('PM', 'pm')
-  
-@keyword
-def remove_invalid_escapes(input_string):
-    try:
-        invalid_escape_pattern = re.compile(r'\\(?!["\\/bfnrtu])')
-        corrected_string = invalid_escape_pattern.sub('', input_string)
-        return corrected_string
-
-    except Exception as e:
-        print(f"An error occurred: {e}")
-        return None
-
-@keyword
-def get_latest_image(directory_path):
-        directory_path = os.path.abspath(directory_path)
-        if not os.path.exists(directory_path):
-            raise FileNotFoundError(f"Directory does not exist: {directory_path}")
-
-        files = [os.path.join(directory_path, f) for f in os.listdir(directory_path) if f.endswith('.png')]
-        if not files:
-            raise FileNotFoundError("No Image found in the specified directory.")
-
-        latest_file = max(files, key=os.path.getmtime)
-        return latest_file
-
-@keyword
-def get_text_from_image(image_path):
-        """Converts an image to text using Tesseract OCR."""
-        image = Image.open(image_path)
-        text = pytesseract.image_to_string(image)
-        print(text)
-        return text
-
-def extract_pdf_details(pdf_path):
-    reader = PdfReader(pdf_path)
-    text = ''
-
-    for page in reader.pages:
-        text += page.extract_text()
-
-    return {
-        'text': text
-    }
-
-def extract_field(text, field_name):
-    for line in text.split('\n'):
-        if field_name in line:
-            return line.split(':', 1)[1].strip()
-    raise ValueError(f'{field_name} not found in the text')
 
 
 
