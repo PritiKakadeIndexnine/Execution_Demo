@@ -61,4 +61,5 @@ jobs:
           AIO_API_TOKEN: ${{ secrets.AIO_API_TOKEN }}  # Store your AIO API token in GitHub Secrets
       run: |
           # Assuming you have a script or a command to update AIO with results
+          cd CommonBase/Utilities
           python update_aio_results.py
