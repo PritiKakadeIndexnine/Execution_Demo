@@ -3,7 +3,7 @@ name: Run Android Tests on LambdaTest
 on:
   push:
     branches:
-      - Android1
+      - Android
 
 jobs:
   test:
