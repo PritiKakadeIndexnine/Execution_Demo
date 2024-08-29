@@ -19,7 +19,7 @@ ${group_count}      2
 TC-58 Verify registered user can join N number of clubs in the given club list
     [Tags]  demotag   Android-TC-58
     set library search order    AppiumLibrary    SeleniumLibrary
-    &{data}    fetch data by id    ${registered_user_data}    1
+    &{data}    fetch data by id    ${registered_user_data}    2
     Verify Login Screen
     Enter Mobile Number    ${data}
     Click On Request Otp Button
