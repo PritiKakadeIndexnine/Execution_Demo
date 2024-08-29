@@ -54,7 +54,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
           name: robot-test-results
-          path: results/
+          path: Mobile/Android/KC/results
 
     - name: Update AIO with test results
       env:
