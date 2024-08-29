@@ -41,16 +41,15 @@ jobs:
 #            echo "Running tests on $DEVICE_NAME with Android $PLATFORM_VERSION and App URL $APP_URL"
 #            robot -i demotag --outputdir Mobile/Android/KC/results --variable host_url:$APPIUM_SERVER_URL --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_URL"  Mobile/Android/KC/TestCases
 #          done
+
     - name: Run Tests on a Single Device
-      run:
-        DEVICE_NAME="Galaxy S24+"  # Replace with the actual device/emulator name
-        PLATFORM_VERSION="14.0"  # Replace with the actual Android version
-        APP_URL="lt://APP1016061291724326875162787"  # Replace with the actual path to your APK
-        
-        # Run the Robot Framework tests on the specified device
-#        echo "Running tests on $DEVICE_NAME with Android $PLATFORM_VERSION and App Path $APP_PATH"
-#        robot -i demotag --outputdir Mobile/Android/KC/results --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_PATH" Mobile/Android/KC/TestCases
-        robot -i demotag --outputdir Mobile/Android/KC/results --variable host_url:$APPIUM_SERVER_URL --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_URL"  Mobile/Android/KC/TestCases
+      run: |
+      
+          DEVICE_NAME="Galaxy S24+"  # Replace with the actual device/emulator name
+          PLATFORM_VERSION="14.0"  # Replace with the actual Android version
+          APP_URL="lt://APP1016061291724326875162787"  # Replace with the actual path to your APK
+          
+          robot -i demotag --outputdir Mobile/Android/KC/results --variable host_url:$APPIUM_SERVER_URL --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_URL"  Mobile/Android/KC/TestCases
 
     - name: Upload test results
       uses: actions/upload-artifact@v3
