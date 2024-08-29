@@ -13,7 +13,7 @@ ${screenshot_actual_dir}    ${CURDIR}${/}..${/}..${/}..${/}..${/}..${/}Runners/R
 ${registered_user_data}     ${CURDIR}${/}..${/}..${/}TestData${/}already_registered_user_data.xlsx
 ${new_user_td}              ${CURDIR}${/}..${/}..${/}TestData${/}new_user_data.xlsx
 ${testdata}                 ${CURDIR}${/}..${/}..${/}TestData${/}comet_chat_data_new.xlsx
-${group_count}      3
+${group_count}      2
 
 *** Test Cases ***
 TC-58 Verify registered user can join N number of clubs in the given club list
