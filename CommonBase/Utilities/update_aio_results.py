@@ -6,7 +6,7 @@ aio_api_token = os.getenv('AIO_API_TOKEN')
 aio_api_url = 'https://sportzinteractive.atlassian.net/plugins/servlet/ac/com.kaanha.jira.tcms/aio-tcms-app-overview?/api/v1/project/10322/testcycle/IQA-CY-1/import/results'  # Replace with your AIO API URL
 
 # Define the path to the Robot Framework results
-results_path = 'Mobile/Android/KC/results/robot-test-results/output.xml'
+results_path = '../../Mobile/Android/KC/results/output.xml'
 
 # Prepare the request headers
 headers = {
