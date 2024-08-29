@@ -1,18 +1,13 @@
 name: Run Android Tests on LambdaTest
 
 on:
-  push:
-    branches:
-      - Android
+   push:
+     branches:
+       - Android
 
 jobs:
   test:
     runs-on: ubuntu-latest
-
-    env:
-      LAMBDATEST_USERNAME: ${{ secrets.LAMBDATEST_USERNAME }}
-      LAMBDATEST_ACCESS_KEY: ${{ secrets.LAMBDATEST_ACCESSKEY }}
-      APPIUM_SERVER_URL: https://suraj.warade:c5gyNDEr11w2acPLuruyQ9Su3DUz5yYeqvWs6Pq8qAK6EaZtMF@mobile-hub.lambdatest.com/wd/hub
 
     steps:
     - name: Checkout code
@@ -26,39 +21,29 @@ jobs:
     - name: Install Robot Framework and Dependencies
       run: |
         pip install -r requirements.txt
+        pip install robotframework-seleniumlibrary
         pip install robotframework-appiumlibrary
         sudo apt-get install jq
 
-#    - name: Run Tests on All Devices from JSON
-#      run: |
-#          # Read the JSON file and generate commands
-#          jq -c '.[]' android_combinations.json | while IFS= read -r device; do
-#            DEVICE_NAME=$(echo "$device" | jq -r '.device')
-#            PLATFORM_VERSION=$(echo "$device" | jq -r '.version')
-#            APP_URL=$(echo "$device" | jq -r '.env')
-#
-#            # Construct and run the Robot Framework command
-#            echo "Running tests on $DEVICE_NAME with Android $PLATFORM_VERSION and App URL $APP_URL"
-#            robot -i demotag --outputdir Mobile/Android/KC/results --variable host_url:$APPIUM_SERVER_URL --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_URL"  Mobile/Android/KC/TestCases
-#          done
-    - name: Run Tests on a Single Device
+    - name: Run Tests on All Devices from JSON
       run: |
-        DEVICE_NAME="Galaxy S24+"  # Replace with the actual device/emulator name
-        PLATFORM_VERSION="14.0"  # Replace with the actual Android version
-        APP_URL="lt://APP1016061291724326875162787"  # Replace with the actual path to your APK
-        
-        # Run the Robot Framework tests on the specified device
-        robot -i demotag --outputdir Mobile/Android/KC/results --variable host_url:$APPIUM_SERVER_URL --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_URL"  Mobile/Android/KC/TestCases
+        # Read the JSON file and generate commands
+        jq -c '.[]' android_combinations.json | while IFS= read -r device; do
+            DEVICE_NAME=$(echo "$device" | jq -r '.device')
+            PLATFORM_VERSION=$(echo "$device" | jq -r '.version')
+            APP_URL=$(echo "$device" | jq -r '.env')
+          
+          # Construct and run the Robot Framework command
+          echo "Running tests on $DEVICE_NAME with Android $PLATFORM_VERSION"
+          robot -i demo --variable deviceName:"$DEVICE_NAME" --variable platformVersion:$PLATFORM_VERSION  Mobile/Android/KC/TestCases/Login/already_registered_user_test.robot
+        done
+      env:
+        LAMBDATEST_USERNAME: ${{ secrets.LAMBDATEST_USERNAME }}
+        LAMBDATEST_ACCESS_KEY: ${{ secrets.LAMBDATEST_ACCESSKEY }}
 
     - name: Upload test results
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v2
       with:
-          name: robot-test-results
-          path: results/
+        name: test-results
+        path: Mobile/Android/KC/TestCases/Login/log.html
 
-    - name: Update AIO with test results
-      env:
-          AIO_API_TOKEN: ${{ secrets.AIO_API_TOKEN }}  # Store your AIO API token in GitHub Secrets
-      run: |
-          # Assuming you have a script or a command to update AIO with results
-          python update_aio_results.py
