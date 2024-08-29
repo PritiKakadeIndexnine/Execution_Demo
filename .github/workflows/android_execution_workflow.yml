@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - Android
-    
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -29,19 +29,29 @@ jobs:
         pip install robotframework-appiumlibrary
         sudo apt-get install jq
 
-    - name: Run Tests on All Devices from JSON
-      run: |
-          # Read the JSON file and generate commands
-          jq -c '.[]' android_combinations.json | while IFS= read -r device; do
-            DEVICE_NAME=$(echo "$device" | jq -r '.device')
-            PLATFORM_VERSION=$(echo "$device" | jq -r '.version')
-            APP_URL=$(echo "$device" | jq -r '.env')
-          
-            # Construct and run the Robot Framework command
-            echo "Running tests on $DEVICE_NAME with Android $PLATFORM_VERSION and App URL $APP_URL"
-            robot -i demotag --outputdir Mobile/Android/KC/results --variable host_url:$APPIUM_SERVER_URL --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_URL"  Mobile/Android/KC/TestCases
-          done
-    
+#    - name: Run Tests on All Devices from JSON
+#      run: |
+#          # Read the JSON file and generate commands
+#          jq -c '.[]' android_combinations.json | while IFS= read -r device; do
+#            DEVICE_NAME=$(echo "$device" | jq -r '.device')
+#            PLATFORM_VERSION=$(echo "$device" | jq -r '.version')
+#            APP_URL=$(echo "$device" | jq -r '.env')
+#
+#            # Construct and run the Robot Framework command
+#            echo "Running tests on $DEVICE_NAME with Android $PLATFORM_VERSION and App URL $APP_URL"
+#            robot -i demotag --outputdir Mobile/Android/KC/results --variable host_url:$APPIUM_SERVER_URL --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_URL"  Mobile/Android/KC/TestCases
+#          done
+    - name: Run Tests on a Single Device
+      run:
+        DEVICE_NAME="Galaxy S24+"  # Replace with the actual device/emulator name
+        PLATFORM_VERSION="14.0"  # Replace with the actual Android version
+        APP_URL="lt://APP1016061291724326875162787"  # Replace with the actual path to your APK
+        
+        # Run the Robot Framework tests on the specified device
+#        echo "Running tests on $DEVICE_NAME with Android $PLATFORM_VERSION and App Path $APP_PATH"
+#        robot -i demotag --outputdir Mobile/Android/KC/results --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_PATH" Mobile/Android/KC/TestCases
+        robot -i demotag --outputdir Mobile/Android/KC/results --variable host_url:$APPIUM_SERVER_URL --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_URL"  Mobile/Android/KC/TestCases
+
     - name: Upload test results
       uses: actions/upload-artifact@v3
       with:

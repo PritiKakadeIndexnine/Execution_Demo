@@ -30,7 +30,7 @@ TC-58 Verify registered user can join N number of clubs in the given club list
     Join N Fan Chat Groups    ${group_count}
 
 TC-59 Verify only moderator, admin can send the photos/videos, create the poll, pin the message
-    [Tags]  demotag   Android-TC-59
+    [Tags]   Android-TC-59
     set library search order    AppiumLibrary    SeleniumLibrary
     &{data}    fetch data by id    ${testdata}    2
     Verify Login Screen
@@ -47,7 +47,7 @@ TC-59 Verify only moderator, admin can send the photos/videos, create the poll, 
     Verify Admin | Moderator Can Pin Message    ${count}
 
 TC-60 Verify any members can send gif file
-    [Tags]  demotag   Android-TC-60
+    [Tags]   Android-TC-60
     set library search order    AppiumLibrary    SeleniumLibrary
     &{data}    fetch data by id    ${testdata}    1
     Verify Login Screen
@@ -61,7 +61,7 @@ TC-60 Verify any members can send gif file
     Send GIF In Group Chat
 
 TC-62 Verify any member can leave the group
-    [Tags]  demotag    Android-TC-62
+    [Tags]   Android-TC-62
     set library search order    AppiumLibrary    SeleniumLibrary
     &{data}    fetch data by id    ${testdata}    6
     Verify Login Screen
@@ -75,7 +75,7 @@ TC-62 Verify any member can leave the group
     Leave Fan Chat Group
 
 TC-64 Verify only admin can promote demote participant, moderator and admin
-    [Tags]  demotag    Android-TC-64
+    [Tags]   Android-TC-64
     set library search order    AppiumLibrary    SeleniumLibrary
     &{data}    fetch data by id    ${testdata}    2
     Verify Login Screen

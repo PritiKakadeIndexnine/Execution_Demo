@@ -29,10 +29,10 @@ ${platformVersion}          14.0
 ${app}                      lt://APP1016061291724326875162787
 
 *** Keywords ***
-#Open KC App
-#    &{env_data} =    Get Environment Data    ${android_environment}
-#    Open Application On Real Device    ${env_data}
-##    Open New Application On Real Device    ${env_data}
+Open KC App
+    &{env_data} =    Get Environment Data    ${android_environment}
+    Open Application On Real Device    ${env_data}
+#    Open New Application On Real Device    ${env_data}
 #    Open Application On Lamda Test    ${env_data}
 #    Open Application On Browserstack    ${env_data}
 
