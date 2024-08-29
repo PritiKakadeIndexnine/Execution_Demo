@@ -10,7 +10,7 @@ results_path = '../../Mobile/Android/KC/results/output.xml'
 
 # Prepare the request headers
 headers = {
-    'Authorization': f'Bearer {aio_api_token}',
+    'Authorization': f'AioAuth {aio_api_token}',
     'Content-Type': 'application/xml'
 }
 
