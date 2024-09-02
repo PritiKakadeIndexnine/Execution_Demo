@@ -13,25 +13,27 @@ ${web_environment}  ${CURDIR}${/}..${/}..${/}..${/}..${/}Runners${/}Environment$
 ${VALID_EMAIL_REGEX}    ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
 ${env}   ${EMPTY}
 ${browser}   ${EMPTY}
-${appium_server}     ${EMPTY}
 ${platform}        Windows 10
 ${version}      127
 ${RESOLUTION}     1920x1080
 ${NAME}           LambdaTest Automation
 &{lt_options}       browserName=${browser}      platform=Windows 10      name=RobotFramework Lambda Test    buildName=Robot Build
+${LT_USERNAME}
+${LT_ACCESS_KEY}
 
 *** Keywords ***
 Open Application And Launch The URL
     ${capabilities}=    Create Dictionary    browserName=${BROWSER}    platform=${PLATFORM}    screenResolution=${RESOLUTION}    name=${NAME}
-    Open Browser    ${env}    ${browser}    remote_url=${appium_server}    desired_capabilities=${capabilities}
+    Open Browser    ${env}    ${browser}    remote_url=${lt_web_server}    desired_capabilities=${capabilities}
     Maximize Browser Window
 
 Launch Application
-   ${options}=    Evaluate    sys.modules['selenium.webdriver'].${BROWSER}Options()    sys, selenium.webdriver
+    ${lt_web_server}    set variable    https://${LT_USERNAME}:${LT_ACCESS_KEY}@hub.lambdatest.com/wd/hub
+    ${options}=    Evaluate    sys.modules['selenium.webdriver'].${BROWSER}Options()    sys, selenium.webdriver
     Call Method    ${options}    set_capability    LT:Options    ${lt_options}
     Open Browser    ${env}
     ...    browser=${browser}
-    ...    remote_url=${appium_server}
+    ...    remote_url=${lt_web_server}
     ...    options=${options}
 
 #    ${env_data}  Get Environment Data    ${web_environment}

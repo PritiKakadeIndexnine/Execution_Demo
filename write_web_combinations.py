@@ -1,9 +1,4 @@
 import json
-import subprocess
-
-from openpyxl import Workbook
-import os
-
 import orthagonal_operations
 
 
