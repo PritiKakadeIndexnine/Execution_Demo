@@ -1,7 +1,7 @@
 [
     {
-        "env": "https://stg-rr.sportz.io/",
-        "env_url": "",
+        "env": "QA",
+        "env_url": "https://stg-rr.sportz.io/",
         "browser": "Chrome",
         "platform": "Windows 10",
         "window_height": 1920,
@@ -9,8 +9,8 @@
         "receiver_email": "bhakti.kolapkar@indexnine.com"
     },
     {
-        "env": "https://stg-rr.sportz.io/",
-        "env_url": "",
+        "env": "Staging",
+        "env_url": "https://stg-rr.sportz.io/",
         "browser": "Edge",
         "platform": "Windows 10",
         "window_height": 1920,
@@ -18,8 +18,8 @@
         "receiver_email": "bhakti.kolapkar@indexnine.com"
     },
     {
-        "env": "https://stg-rr.sportz.io/",
-        "env_url": "",
+        "env": "Prod",
+        "env_url": "https://stg-rr.sportz.io/",
         "browser": "Chrome",
         "platform": "Windows 10",
         "window_height": 1920,

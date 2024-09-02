@@ -69,8 +69,3 @@ def commit_and_push_changes(branch, remote_url):
     subprocess.run(["git", "push", "origin", branch], check=True)
 
 
-
-def update_combinations(combinations, output_file="ios_combinations.json"):
-    with open(output_file, 'w') as json_file:
-        json.dump(combinations, json_file, indent=4)
-

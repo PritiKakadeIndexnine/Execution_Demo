@@ -2,6 +2,11 @@ import orthagonal_operations
 import json
 import subprocess
 
+def update_combinations(combinations, output_file="ios_combinations.json"):
+    with open(output_file, 'w') as json_file:
+        json.dump(combinations, json_file, indent=4)
+
+
 if __name__ == "__main__":
     with open("combined_environment.json", 'r') as f:
         combined_env = json.load(f)
@@ -14,7 +19,7 @@ if __name__ == "__main__":
         }
 
         combinations = orthagonal_operations.generate_testing_combinations(factors, levels)
-        orthagonal_operations.update_combinations(combinations)
+        update_combinations(combinations)
 
         remote_url = "https://github.com/PritiKakadeIndexnine/Execution_Demo.git"
 
