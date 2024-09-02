@@ -37,4 +37,5 @@ jobs:
           # Construct and run the Robot Framework command
           echo "Running tests on '$BROWSER' with environment '$ENV'"
           pabot --testlevelsplit --variable browser:"$BROWSER" --variable env:"$ENV" --variable LT_USERNAME:"$LAMBDATEST_USERNAME" --variable LT_ACCESS_KEY:"$LAMBDATEST_ACCESS_KEY"  Web/RR/TestCases/Players/Players_test.robot
+        
         done
