@@ -1,9 +1,6 @@
 import json
 import subprocess
-
 import oapackage
-from openpyxl import Workbook
-import os
 
 
 def generate_testing_combinations(factors, levels, runs=None):

@@ -51,16 +51,20 @@ def update_environment_combinations(combinations, env_config_file="web_environme
 
 
 if __name__ == "__main__":
-    factors = ["env", "browser"]
-    levels = {
-        "env": ["QA", "Staging", "Prod"],
-        "browser": ["chrome", "edge"]
-    }
+    with open("web_environment.json", 'r') as f:
+        combined_env = json.load(f)
 
-    test_combinations = orthagonal_operations.generate_testing_combinations(factors, levels)
+        factors = ["env", "browser", "platform"]
+        levels = {
+            "env": list(combined_env['env'].values()),
+            "browser": list(combined_env['browser'].values()),
+            "platform": list(combined_env['platform'].values())
+        }
 
-    update_environment_combinations(test_combinations)
+        test_combinations = orthagonal_operations.generate_testing_combinations(factors, levels)
 
-    remote_url = "https://github.com/PritiKakadeIndexnine/Execution_Demo.git"
+        update_environment_combinations(test_combinations)
 
-    orthagonal_operations.commit_and_push_changes("web-execution", remote_url)
+        remote_url = "https://github.com/PritiKakadeIndexnine/Execution_Demo.git"
+
+        orthagonal_operations.commit_and_push_changes("web-execution", remote_url)
