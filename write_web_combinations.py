@@ -40,7 +40,6 @@ def update_environment_combinations(combinations, env_config_file="web_environme
             'window_width': config['window_width'],
             'receiver_email': config['receiver_email']
         }
-
         # Append to the results list
         results.append(updated_combination)
 
