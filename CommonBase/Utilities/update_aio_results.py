@@ -1,30 +1,40 @@
 import requests
-import os
 
-# Load the AIO API token from environment variable
-aio_api_token = os.getenv('AIO_API_TOKEN')
-aio_api_url = 'https://sportzinteractive.atlassian.net/plugins/servlet/ac/com.kaanha.jira.tcms/aio-tcms-app-overview?/api/v1/project/10322/testcycle/IQA-CY-1/import/results'  # Replace with your AIO API URL
+# Configuration
+api_url = 'https://tcms.aiojiraapps.com/aio-tcms/api/v1/project/IQA/testcycle/IQA-CY-3/import/results?type=Robot'
+api_token = 'YTJmNDBiNmUtMWZkNS0zZmFkLWI3NjYtMTYwN2QyMWY0ZTIwLjliZTFlZjVkLWZkMjMtNGUwMy1iN2ExLTk0MDZjOWUyMzMzOA=='  # Replace with your actual API token
+file_path = '../../Mobile/Android/KC/results/output.xml'  # Path to the file you want to upload
 
-# Define the path to the Robot Framework results
-results_path = 'Mobile/Android/KC/results/output.xml'
-
-# Prepare the request headers
+# Prepare the headers
 headers = {
-    'Authorization': f'Bearer {aio_api_token}',
-    'Content-Type': 'application/xml'
+    'accept': 'application/json;charset=utf-8',
+    'Authorization': f'AioAuth {api_token}',
 }
 
-# Read the Robot Framework results file
-with open(results_path, 'r') as file:
-    results_xml = file.read()
+# Prepare the form data
+files = {
+    'file': open(file_path, 'rb')  # Open the file in binary read mode
+}
+data = {
+    'createNewRun': 'true',
+    'addCaseToCycle': 'true',
+    'createCase': 'true',
+    'forceUpdateCase': 'true',
+}
 
-# Send the results to AIO
-response = requests.post(aio_api_url, headers=headers, data=results_xml)
+# Make the POST request
+try:
+    response = requests.post(api_url, headers=headers, files=files, data=data)
 
-# Check the response
-if response.status_code == 200:
-    print('results successfully updated to AIO.')
-else:
-    print(f'Failed to update results to AIO. Status code: {response.status_code}')
-    print(f'Response: {response.text}')
+    # Check the response
+    if response.status_code == 200:
+        print('Results successfully updated to AIO.')
+    else:
+        print(f'Failed to update results to AIO. Status code: {response.status_code}')
+        print(f'Response: {response.text}')
+except requests.exceptions.RequestException as e:
+    print(f'Request failed: {e}')
+finally:
+    # Ensure the file is closed after the request
+    files['file'].close()
 

@@ -17,7 +17,7 @@ ${group_count}      2
 
 *** Test Cases ***
 TC-58 Verify registered user can join N number of clubs in the given club list
-    [Tags]  demotag   Android-TC-58
+    [Tags]    IQA-TC-1
     set library search order    AppiumLibrary    SeleniumLibrary
     &{data}    fetch data by id    ${registered_user_data}    1
     Verify Login Screen
@@ -30,7 +30,7 @@ TC-58 Verify registered user can join N number of clubs in the given club list
     Join N Fan Chat Groups    ${group_count}
 
 TC-59 Verify only moderator, admin can send the photos/videos, create the poll, pin the message
-    [Tags]   Android-TC-59
+    [Tags]   IQA-TC-2
     set library search order    AppiumLibrary    SeleniumLibrary
     &{data}    fetch data by id    ${testdata}    2
     Verify Login Screen
@@ -47,7 +47,6 @@ TC-59 Verify only moderator, admin can send the photos/videos, create the poll, 
     Verify Admin | Moderator Can Pin Message    ${count}
 
 TC-60 Verify any members can send gif file
-    [Tags]   Android-TC-60
     set library search order    AppiumLibrary    SeleniumLibrary
     &{data}    fetch data by id    ${testdata}    1
     Verify Login Screen
@@ -61,7 +60,7 @@ TC-60 Verify any members can send gif file
     Send GIF In Group Chat
 
 TC-62 Verify any member can leave the group
-    [Tags]   Android-TC-62
+    [Tags]   IQA-TC-3
     set library search order    AppiumLibrary    SeleniumLibrary
     &{data}    fetch data by id    ${testdata}    6
     Verify Login Screen
@@ -75,7 +74,7 @@ TC-62 Verify any member can leave the group
     Leave Fan Chat Group
 
 TC-64 Verify only admin can promote demote participant, moderator and admin
-    [Tags]   Android-TC-64
+    [Tags]   IQA-TC-4
     set library search order    AppiumLibrary    SeleniumLibrary
     &{data}    fetch data by id    ${testdata}    2
     Verify Login Screen
@@ -90,7 +89,7 @@ TC-64 Verify only admin can promote demote participant, moderator and admin
     Verify Admin Can Demote Participant
 
 TC_65 Verify club search functionality
-    [Tags]    cometchat
+    [Tags]    IQA-TC-5
     set library search order    AppiumLibrary    SeleniumLibrary
     &{data}    fetch data by id    ${testdata}    5
     Verify Login Screen

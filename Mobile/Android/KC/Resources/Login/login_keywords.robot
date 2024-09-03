@@ -18,15 +18,15 @@ ${copied_text}                          ${None}
 ${Expected_resend_otp_limit_count}      4
 ${actual_resend_otp_limit_count}        0
 
-${LAMBDATEST_USERNAME}      suraj.warade
-${LAMBDATEST_ACCESSKEY}     c5gyNDEr11w2acPLuruyQ9Su3DUz5yYeqvWs6Pq8qAK6EaZtMF
+${LAMBDATEST_USERNAME}      qaweb
+${LAMBDATEST_ACCESSKEY}     GyDxHIjkaqBZug1skplSAcDrKJM5j11IYEhuuhVaHf2s0IcIFU
 ${host_url}                 https://${LAMBDATEST_USERNAME}:${LAMBDATEST_ACCESSKEY}@mobile-hub.lambdatest.com/wd/hub
 ${PLATFORM_NAME}            android
 ${APP_PACKAGE}              android-lambdatest
 ${APP_ACTIVITY}             your.app.activity
 ${deviceName}               Galaxy S24+
 ${platformVersion}          14.0
-${app}                      lt://APP1016061291724326875162787
+${app}                      lt://APP1016041711725268892279115
 
 *** Keywords ***
 Open KC App

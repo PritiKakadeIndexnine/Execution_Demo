@@ -12,7 +12,7 @@ jobs:
     env:
       LAMBDATEST_USERNAME: ${{ secrets.LAMBDATEST_USERNAME }}
       LAMBDATEST_ACCESS_KEY: ${{ secrets.LAMBDATEST_ACCESSKEY }}
-      APPIUM_SERVER_URL: https://suraj.warade:c5gyNDEr11w2acPLuruyQ9Su3DUz5yYeqvWs6Pq8qAK6EaZtMF@mobile-hub.lambdatest.com/wd/hub
+      APPIUM_SERVER_URL: https://qaweb:GyDxHIjkaqBZug1skplSAcDrKJM5j11IYEhuuhVaHf2s0IcIFU@mobile-hub.lambdatest.com/wd/hub
 
     steps:
     - name: Checkout code
@@ -48,17 +48,19 @@ jobs:
         APP_URL="lt://APP1016061291724326875162787"  # Replace with the actual path to your APK
         
         # Run the Robot Framework tests on the specified device
-        robot -i demotag --outputdir Mobile/Android/KC/results --variable host_url:$APPIUM_SERVER_URL --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_URL"  Mobile/Android/KC/TestCases
+        robot -i IQA-TC-1 -i IQA-TC-2 -i IQA-TC-3 -i IQA-TC-4 -i IQA-TC-5 --outputdir Mobile/Android/KC/results --variable host_url:$APPIUM_SERVER_URL --variable deviceName:"$DEVICE_NAME" --variable platformVersion:"$PLATFORM_VERSION" --variable app:"$APP_URL"  Mobile/Android/KC/TestCases
 
     - name: Upload test results
       uses: actions/upload-artifact@v3
+      if: always()
       with:
           name: robot-test-results
           path: Mobile/Android/KC/results
 
     - name: Update AIO with test results
       env:
-          AIO_API_TOKEN: ${{ secrets.AIO_API_TOKEN }}  # Store your AIO API token in GitHub Secrets
+          AIO_API_TOKEN: ${{ secrets.AIO_API_TOKEN }}
+      if: always()
       run: |
           # Assuming you have a script or a command to update AIO with results
           cd CommonBase/Utilities
